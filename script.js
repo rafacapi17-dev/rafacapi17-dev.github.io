@@ -7,7 +7,7 @@
   const LOCALE = EN ? "en-GB" : "es-ES";
   const TXT = {
     es: {
-      temas: "Temas", preguntaDia: "Pregunta del día", sobreMi: "Sobre mí", otraPregunta: "Ver otra pregunta", cerrar: "Cerrar",
+      temas: "Temas", preguntaDia: "Pregunta del día", temaDia: "Tema del día", leerNoticia: "Leer la noticia", anteriores: "Temas de días anteriores", ocultarAnteriores: "Ocultar días anteriores", sobreMi: "Sobre mí", otraPregunta: "Ver otra pregunta", cerrar: "Cerrar",
       todos: "Todos", leerMas: "Leer más", minLectura: "min de lectura", videoProx: "Vídeo próximamente",
       verTemas: (n, c) => `Ver los ${n} temas de ${c}`, vacio: "No hay temas en esta categoría.",
       proximamente: "Próximamente", enPreparacion: "Estoy preparando este tema. Vuelve pronto para leerlo.",
@@ -21,7 +21,7 @@
       error: "<strong>No se ha podido leer el contenido (data.js).</strong><br>Revisa el último cambio: suele ser una coma o unas comillas que faltan, o un carácter suelto escrito sin querer.",
     },
     en: {
-      temas: "Topics", preguntaDia: "Question of the day", sobreMi: "About me", otraPregunta: "Show another question", cerrar: "Close",
+      temas: "Topics", preguntaDia: "Question of the day", temaDia: "Topic of the day", leerNoticia: "Read the story", anteriores: "Previous days' topics", ocultarAnteriores: "Hide previous days", sobreMi: "About me", otraPregunta: "Show another question", cerrar: "Close",
       todos: "All", leerMas: "Read more", minLectura: "min read", videoProx: "Video coming soon",
       verTemas: (n, c) => `See all ${n} topics in ${c}`, vacio: "There are no topics in this category.",
       proximamente: "Coming soon", enPreparacion: "I'm working on this topic. Check back soon to read it.",
@@ -39,6 +39,7 @@
   const tx = (o, k) => (o ? (EN && o[k + "_en"] != null && o[k + "_en"] !== "" ? o[k + "_en"] : o[k]) : "");
 
   document.documentElement.lang = idioma;
+  if (!(window.TOPIC_DIA || []).length) document.querySelectorAll('[data-i18n="temaDia"]').forEach((el) => (el.dataset.i18n = "preguntaDia"));
   document.querySelectorAll("[data-i18n]").forEach((el) => { if (typeof TXT[el.dataset.i18n] === "string") el.textContent = TXT[el.dataset.i18n]; });
 
   const btnIdioma = document.getElementById("btnIdioma");
@@ -123,9 +124,34 @@
   const ytBoton = (id, titulo) =>
     `<button class="yt" data-yt="${esc(id)}" aria-label="${TXT.reproducirVideo}: ${esc(titulo)}"><img src="${ytThumb(id)}" alt="" loading="lazy"><span class="play">${TXT.reproducir}</span></button>`;
 
-  // ---------- Pregunta del día ----------
-  const preguntas = S.preguntas || [];
-  if (!preguntas.length) { $("pregunta").remove(); document.querySelector('a[href="#pregunta"]')?.remove(); }
+  // ---------- Tema del día (topic.js, lo actualiza el resumen nocturno) ----------
+  const topics = (window.TOPIC_DIA || []).filter((t) => t && t.titulo);
+  const fmtCorta = (f) => { const d = new Date(f + "T12:00:00"); return isNaN(d) ? f : d.toLocaleDateString(LOCALE, { day: "numeric", month: "short" }); };
+  if (topics.length) {
+    const t = topics[0], previos = topics.slice(1, 8);
+    const enlace = (x, clase) => x.url ? `<a class="${clase}" href="${esc(x.url)}" target="_blank" rel="noopener">` : `<span class="${clase}">`;
+    const cierre = (x) => (x.url ? "</a>" : "</span>");
+    $("pregunta").classList.add("topic");
+    $("pregunta").innerHTML = `
+      <div class="pregunta-cab"><span>${TXT.temaDia}</span><span>${esc(fmtFecha(t.fecha))}</span></div>
+      ${tx(t, "area") ? `<span class="topic-area">${esc(tx(t, "area"))}</span>` : ""}
+      <h2 id="pTexto">${esc(tx(t, "titulo"))}</h2>
+      <p class="topic-resumen">${esc(tx(t, "resumen"))}</p>
+      ${t.url ? `<p class="topic-fuente"><a href="${esc(t.url)}" target="_blank" rel="noopener">${TXT.leerNoticia} →</a>${t.fuente ? ` <span>· ${esc(t.fuente)}</span>` : ""}</p>` : ""}
+      ${previos.length ? `<button class="otra" type="button" id="btnAnteriores" aria-expanded="false">${TXT.anteriores}</button>
+      <ul class="topic-anteriores" id="listaAnteriores" hidden>${previos.map((x) => `<li>${enlace(x, "ant")}<span class="ant-fecha">${esc(fmtCorta(x.fecha))}</span>${esc(tx(x, "titulo"))}${cierre(x)}</li>`).join("")}</ul>` : ""}`;
+    const btnAnt = $("btnAnteriores");
+    if (btnAnt) btnAnt.onclick = () => {
+      const abierta = $("listaAnteriores").hidden;
+      $("listaAnteriores").hidden = !abierta;
+      btnAnt.setAttribute("aria-expanded", String(abierta));
+      btnAnt.textContent = abierta ? TXT.ocultarAnteriores : TXT.anteriores;
+    };
+  }
+  // ---------- Pregunta del día (solo si no hay tema del día) ----------
+  const preguntas = topics.length ? [] : S.preguntas || [];
+  if (topics.length) { /* el recuadro ya muestra el tema del día */ }
+  else if (!preguntas.length) { $("pregunta").remove(); document.querySelector('a[href="#pregunta"]')?.remove(); }
   else {
     const hoy = new Date();
     const indiceHoy = Math.floor(Date.UTC(hoy.getFullYear(), hoy.getMonth(), hoy.getDate()) / 864e5) % preguntas.length;
