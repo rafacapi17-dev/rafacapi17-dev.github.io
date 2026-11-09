@@ -8,20 +8,20 @@
 window.TOPIC_DIA = [
   {
     fecha: "2026-11-09",
-    area: "Salud digital",
-    area_en: "Digital health",
-    titulo: "Un reloj inteligente detecta la tensión alta sin manguito, a la altura de una toma en consulta",
-    titulo_en: "A smartwatch spots high blood pressure without a cuff, on par with an office check",
+    area: "Envejecimiento y cuidados",
+    area_en: "Ageing and care",
+    titulo: "Más ayuda en casa y formación para cuidadores retrasan el paso a una residencia",
+    titulo_en: "More home help and caregiver training delay the move to a nursing home",
     resumen:
-      "Un estudio publicado en Nature entrenó una inteligencia artificial con las señales de pulso y movimiento de un reloj inteligente para detectar hipertensión sin usar manguito. " +
-      "En 196 adultos de cinco centros de EE. UU., comparado con la medición de 24 horas, el reloj acertó algo más que una toma única en la consulta (66 % frente a 55 % de casos detectados). " +
-      "Es una investigación preliminar con una muestra pequeña: aún se le escapan muchos casos y no sustituye al tensiómetro ni al diagnóstico médico.",
+      "Un ensayo clínico realizado en Cataluña con 142 personas mayores dependientes (edad mediana, 86 años) reforzó la atención domiciliaria y formó a sus cuidadores durante 15 meses. " +
+      "Frente a la atención habitual, quienes recibieron este apoyo tardaron bastante más en plantearse ingresar en una residencia (el riesgo de hacerlo se redujo aproximadamente a un tercio). " +
+      "Es un estudio con una muestra pequeña; mide la disposición a ingresar, no el ingreso real, y en otras variables no hubo cambios claros.",
     resumen_en:
-      "A study published in Nature trained an artificial intelligence on a smartwatch's pulse and motion signals to detect hypertension without a cuff. " +
-      "In 196 adults at five US sites, compared with 24-hour monitoring, the watch caught somewhat more cases than a single office reading (66% vs 55%). " +
-      "It is early research with a small sample: it still misses many cases and does not replace a blood pressure cuff or a medical diagnosis.",
-    fuente: "Nature (vía Google Research)",
-    url: "https://research.google/blog/detecting-signs-of-hypertension-using-wearable-sensors/",
+      "A clinical trial in Catalonia, Spain, with 142 care-dependent older adults (median age 86) stepped up home care and trained their caregivers for 15 months. " +
+      "Compared with usual care, those who got this support took considerably longer to consider moving into a nursing home (the likelihood fell to about a third). " +
+      "The sample is small; the study measured willingness to move, not actual admissions, and other outcomes showed no clear change.",
+    fuente: "European Journal of Ageing",
+    url: "https://link.springer.com/article/10.1007/s10433-026-00955-4",
   },
   {
     fecha: "2026-11-06",
