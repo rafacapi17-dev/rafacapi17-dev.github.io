@@ -285,7 +285,9 @@ main, footer, .barra { position: relative; z-index: 1; }
 .marca:hover .logo { transform: rotate(-4deg) scale(1.04); }
 .marca-txt { font: 600 1.4rem/1 var(--serif); letter-spacing: -.01em; color: var(--tinta); }
 .marca-txt span { color: var(--acento); font-weight: 500; margin-left: .04em; }
-:root[data-tema="oscuro"] .logo { background: #faf9f6; border-radius: 50%; padding: 3px; }
+.logo-oscuro { display: none; }
+:root[data-tema="oscuro"] .logo-claro { display: none; }
+:root[data-tema="oscuro"] .logo-oscuro { display: block; }
 
 /* Cabecera */
 .cabecera { position: relative; border-bottom-color: color-mix(in srgb, var(--tinta) 75%, var(--ambar)); }
