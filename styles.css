@@ -5,8 +5,10 @@
   --texto: #3a3d42;
   --suave: #6e7279;
   --linea: #dcd9d2;
-  --acento: #1f3a5f;          /* azul tinta */
-  --acento-claro: #e8edf3;
+  --acento: #98501f;          /* terracota tostado (texto y enlaces) */
+  --acento-claro: #f6ebe0;
+  --ambar: #d4874a;           /* ámbar suave para detalles */
+  --ambar-velo: rgba(212,135,74,.10);
   --bien: #2d6a4f;
   --mal: #9b2c2c;
   --serif: "Newsreader", Georgia, "Times New Roman", serif;
@@ -26,8 +28,10 @@
   --texto: #c9c7c1;
   --suave: #8f949b;
   --linea: #2e3237;
-  --acento: #8fb3dd;
-  --acento-claro: #1d2a39;
+  --acento: #e2a774;
+  --acento-claro: #2c2219;
+  --ambar: #d99a62;
+  --ambar-velo: rgba(217,154,98,.08);
   --bien: #6fc39a;
   --mal: #e58a8a;
   --tono-mezcla: 16%;
@@ -252,3 +256,78 @@ dialog[open] { animation: lateral .28s ease; }
   .articulo .credito { text-align: center; }
   .cuerpo-texto p, .cuerpo-texto li { font-size: 1.2rem; }
 }
+
+/* ===== Detalles cálidos ===== */
+::selection { background: color-mix(in srgb, var(--ambar) 30%, transparent); }
+body {
+  background-color: var(--fondo);
+  background-image:
+    radial-gradient(60rem 40rem at 105% -10%, var(--ambar-velo), transparent 60%),
+    radial-gradient(45rem 35rem at -15% 55%, var(--ambar-velo), transparent 60%);
+  background-attachment: fixed;
+}
+/* Grano de papel muy fino */
+body::before {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .35; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .32 0 0 0 0 .2 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+:root[data-tema="oscuro"] body::before { mix-blend-mode: screen; opacity: .2; }
+main, footer, .barra { position: relative; z-index: 1; }
+.barra { z-index: 5; }
+
+/* Filete ámbar bajo la barra */
+.barra::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ambar) 30%, var(--ambar) 70%, transparent); opacity: .55; }
+.marca::before { content: ""; display: inline-block; width: .42rem; height: .42rem; margin-right: .55rem; vertical-align: .15em;
+  background: var(--ambar); transform: rotate(45deg); }
+
+/* Cabecera */
+.cabecera { position: relative; border-bottom-color: color-mix(in srgb, var(--tinta) 75%, var(--ambar)); }
+.cabecera::before { content: ""; position: absolute; z-index: -1; width: 26rem; height: 26rem; left: -8rem; top: -4rem; border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--ambar) 22%, transparent);
+  box-shadow: 0 0 0 2.2rem color-mix(in srgb, var(--ambar) 4%, transparent); pointer-events: none; }
+.sobretitulo { display: flex; align-items: center; gap: .75rem; }
+.sobretitulo::before { content: ""; width: 2.25rem; height: 1px; background: var(--ambar); }
+.cabecera h1 em, .cabecera h1 i { color: var(--acento); }
+.cabecera::after { content: "◆"; position: absolute; left: 50%; bottom: -.62rem; transform: translateX(-50%);
+  font-size: .7rem; line-height: 1.2rem; padding: 0 .9rem; color: var(--ambar); background: var(--fondo); }
+
+/* Tarjeta del tema del día */
+.pregunta { border-top: 0; position: relative; box-shadow: 0 1px 0 var(--linea), 0 18px 40px -28px rgba(152,80,31,.35); }
+.pregunta::before { content: ""; position: absolute; left: -1px; right: -1px; top: -1px; height: 3px;
+  background: linear-gradient(90deg, var(--acento), var(--ambar)); }
+.pregunta::after { content: ""; position: absolute; right: .9rem; bottom: .9rem; width: 1.6rem; height: 1.6rem;
+  border-right: 1px solid var(--ambar); border-bottom: 1px solid var(--ambar); opacity: .45; }
+
+/* Títulos de sección con remate */
+.seccion-cab h2, .sobre > h2 { position: relative; padding-bottom: .6rem; }
+.seccion-cab h2::after, .sobre > h2::after { content: ""; position: absolute; left: 0; bottom: 0; width: 2.5rem; height: 2px; background: var(--ambar); }
+.filtros button[aria-selected="true"] { border-bottom-color: var(--ambar); }
+.sobre { border-top-color: color-mix(in srgb, var(--tinta) 75%, var(--ambar)); }
+
+/* Tarjetas */
+.portada { box-shadow: 0 14px 30px -24px rgba(90,50,20,.45); }
+.portada::after { content: ""; position: absolute; inset: 0; pointer-events: none; border: 1px solid transparent; transition: border-color .3s, inset .3s; }
+.tarjeta:hover .portada::after { inset: .6rem; border-color: rgba(255,248,240,.75); }
+.portada.vacia { background: linear-gradient(135deg, color-mix(in srgb, var(--ambar) 10%, var(--papel)), var(--papel)); }
+.leer-mas { border-bottom-color: color-mix(in srgb, var(--ambar) 70%, transparent); }
+.mas-serie:hover, .ctrl:hover { border-color: var(--ambar); }
+.item.destacada, .tarjeta.destacada { border-bottom-style: dashed; border-bottom-color: color-mix(in srgb, var(--ambar) 45%, var(--linea)); }
+.sobre img { outline: 1px solid var(--ambar); outline-offset: 5px; }
+.enlaces a:hover { border-color: var(--ambar); }
+
+/* Artículo */
+.cuerpo-texto blockquote, .aviso-video { border-left-color: var(--ambar); }
+.cuerpo-texto li::before { background: var(--ambar); }
+.cuerpo-texto > p:first-child::first-letter { float: left; font: 500 3.6rem/.85 var(--serif); padding: .35rem .55rem 0 0; color: var(--acento); }
+.articulo .m-media { box-shadow: 0 24px 50px -30px rgba(90,50,20,.5); }
+
+/* Pie */
+footer { border-top: 0; background: linear-gradient(180deg, transparent, var(--ambar-velo)); }
+footer::before { content: ""; display: block; height: 1px; background: linear-gradient(90deg, transparent, var(--ambar), transparent); opacity: .5; }
+
+/* Aparición suave al hacer scroll */
+.revelar { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s ease; }
+.revelar.visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .revelar { opacity: 1; transform: none; transition: none; } }
+@media (max-width: 900px) { .cabecera::before { width: 18rem; height: 18rem; left: -7rem; } }

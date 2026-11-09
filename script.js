@@ -328,3 +328,19 @@
   window.addEventListener("hashchange", deHash);
   deHash();
 })();
+
+// Aparición suave de tarjetas y secciones al entrar en pantalla
+(function () {
+  if (!("IntersectionObserver" in window)) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); } });
+  }, { rootMargin: "0px 0px -8% 0px" });
+  function marcar() {
+    document.querySelectorAll(".rejilla > *:not(.revelar), .sobre:not(.revelar)").forEach(function (el, i) {
+      el.classList.add("revelar"); el.style.transitionDelay = (i % 3) * 80 + "ms"; io.observe(el);
+    });
+  }
+  marcar();
+  var rej = document.getElementById("rejilla");
+  if (rej) new MutationObserver(marcar).observe(rej, { childList: true });
+})();
