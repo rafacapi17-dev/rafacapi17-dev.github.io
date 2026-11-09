@@ -82,8 +82,7 @@
   const nombreCat = (c) => (EN && S.categorias_en && S.categorias_en[c]) || c;
 
   // ---------- Básicos ----------
-  document.title = S.nombreWeb_en && EN ? S.nombreWeb_en : S.nombreWeb || document.title;
-  $("marca").textContent = tx(S, "nombreWeb");
+  document.title = "RafaelJL · " + (S.nombreWeb_en && EN ? S.nombreWeb_en : S.nombreWeb || "");
   $("etiqueta").textContent = tx(S, "etiqueta");
   $("titulo").textContent = tx(S, "titular") || tx(S, "nombreWeb");
   $("intro").textContent = tx(S, "intro");
@@ -91,7 +90,7 @@
   if (S.foto) { $("foto").src = S.foto; $("foto").alt = S.autor || ""; $("foto").hidden = false; }
   $("enlaces").innerHTML = (S.enlaces || []).filter((e) => e.url)
     .map((e) => `<li><a href="${esc(e.url)}" ${e.tipo === "email" ? "" : 'target="_blank" rel="noopener"'}>${esc(REDES[e.tipo] || e.tipo)}</a></li>`).join("");
-  $("pie").textContent = `© ${new Date().getFullYear()} ${S.autor || ""} · ${tx(S, "nombreWeb")}`;
+  $("pie").textContent = `© ${new Date().getFullYear()} RafaelJL · ${tx(S, "nombreWeb")}`;
 
   const fmtFecha = (f) => {
     if (!f) return "";

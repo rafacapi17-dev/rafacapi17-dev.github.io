@@ -278,8 +278,14 @@ main, footer, .barra { position: relative; z-index: 1; }
 /* Filete ámbar bajo la barra */
 .barra::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px;
   background: linear-gradient(90deg, transparent, var(--ambar) 30%, var(--ambar) 70%, transparent); opacity: .55; }
-.marca::before { content: ""; display: inline-block; width: .42rem; height: .42rem; margin-right: .55rem; vertical-align: .15em;
-  background: var(--ambar); transform: rotate(45deg); }
+/* Logo */
+.barra-in { align-items: center; padding-top: .7rem; padding-bottom: .7rem; }
+.marca { display: inline-flex; align-items: center; gap: .6rem; }
+.logo { width: 52px; height: 52px; flex: none; transition: transform .3s ease; }
+.marca:hover .logo { transform: rotate(-4deg) scale(1.04); }
+.marca-txt { font: 600 1.4rem/1 var(--serif); letter-spacing: -.01em; color: var(--tinta); }
+.marca-txt span { color: var(--acento); font-weight: 500; margin-left: .04em; }
+:root[data-tema="oscuro"] .logo { background: #faf9f6; border-radius: 50%; padding: 3px; }
 
 /* Cabecera */
 .cabecera { position: relative; border-bottom-color: color-mix(in srgb, var(--tinta) 75%, var(--ambar)); }
