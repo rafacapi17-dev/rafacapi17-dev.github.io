@@ -8,20 +8,20 @@
 window.TOPIC_DIA = [
   {
     fecha: "2026-11-09",
-    area: "Envejecimiento y cuidados",
-    area_en: "Ageing and care",
-    titulo: "Más ayuda en casa y formación para cuidadores retrasan el paso a una residencia",
-    titulo_en: "More home help and caregiver training delay the move to a nursing home",
+    area: "Obesidad y dolor articular",
+    area_en: "Obesity and joint pain",
+    titulo: "Un fármaco experimental para adelgazar alivia el dolor de rodilla por artrosis",
+    titulo_en: "An experimental weight-loss drug eases knee osteoarthritis pain",
     resumen:
-      "Un ensayo clínico realizado en Cataluña con 142 personas mayores dependientes (edad mediana, 86 años) reforzó la atención domiciliaria y formó a sus cuidadores durante 15 meses. " +
-      "Frente a la atención habitual, quienes recibieron este apoyo tardaron bastante más en plantearse ingresar en una residencia (el riesgo de hacerlo se redujo aproximadamente a un tercio). " +
-      "Es un estudio con una muestra pequeña; mide la disposición a ingresar, no el ingreso real, y en otras variables no hubo cambios claros.",
+      "Dos ensayos clínicos con más de 1.000 adultos con obesidad o sobrepeso y artrosis de rodilla, publicados en el New England Journal of Medicine, probaron la retatrutida, un fármaco inyectable semanal aún no aprobado. " +
+      "Tras más de un año, quienes la recibieron perdieron hasta un 20-25 % de su peso y cerca de dos tercios redujeron su dolor de rodilla al menos a la mitad, frente a algo menos de 4 de cada 10 con placebo. " +
+      "Los efectos secundarios digestivos fueron frecuentes, los ensayos los financió el fabricante y no se estudió si el fármaco frena el desgaste de la articulación.",
     resumen_en:
-      "A clinical trial in Catalonia, Spain, with 142 care-dependent older adults (median age 86) stepped up home care and trained their caregivers for 15 months. " +
-      "Compared with usual care, those who got this support took considerably longer to consider moving into a nursing home (the likelihood fell to about a third). " +
-      "The sample is small; the study measured willingness to move, not actual admissions, and other outcomes showed no clear change.",
-    fuente: "European Journal of Ageing",
-    url: "https://link.springer.com/article/10.1007/s10433-026-00955-4",
+      "Two clinical trials in more than 1,000 adults with obesity or overweight and knee osteoarthritis, published in the New England Journal of Medicine, tested retatrutide, a weekly injectable drug that is not yet approved. " +
+      "After more than a year, people on the drug lost up to 20-25% of their body weight and about two in three cut their knee pain at least in half, compared with just under four in ten on placebo. " +
+      "Digestive side effects were common, the trials were funded by the manufacturer, and they did not test whether the drug slows joint damage.",
+    fuente: "New England Journal of Medicine (vía Rheumatology Live)",
+    url: "https://www.rheum-live.com/view/retatrutide-reduces-knee-osteoarthritis-pain-in-triumph-4-and-triumph-1-oa",
   },
   {
     fecha: "2026-11-06",
