@@ -237,7 +237,9 @@ dialog[open] { animation: lateral .28s ease; }
   .sobre { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
-  .barra nav a:not([href="#temas"]) { display: none; }
+  .barra nav a:not([href="#temas"]):not([href="#archivo"]) { display: none; }
+  .marca-txt { font-size: 1.2rem; }
+  .logo { width: 44px; height: 44px; }
   .barra nav { gap: 1rem; }
   .rejilla { grid-template-columns: 1fr; }
   .sobre-cuerpo { flex-direction: column; }
