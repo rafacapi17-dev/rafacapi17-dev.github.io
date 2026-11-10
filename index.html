@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=202611101725">
+  <link rel="stylesheet" href="styles.css?v=202611101739">
   <link rel="icon" type="image/png" href="img/favicon.png">
   <link rel="apple-touch-icon" href="img/favicon.png">
   <script>
@@ -47,6 +47,7 @@
       <nav>
         <a href="#temas" data-i18n="temas">Temas</a>
         <a href="#pregunta" data-i18n="temaDia">Tema del día</a>
+        <a href="#publicaciones" data-i18n="publicaciones">Publicaciones</a>
         <a href="#archivo" data-i18n="archivo">Archivo</a>
         <a href="#sobre" data-i18n="sobreMi">Sobre mí</a>
         <span class="controles">
@@ -91,6 +92,28 @@
       <div class="rejilla" id="rejilla"></div>
     </section>
 
+    <section id="publicaciones" class="produccion" hidden>
+      <div class="prod-cab">
+        <div>
+          <p class="sobretitulo" data-i18n="prodEtq">Producción científica</p>
+          <h2 data-i18n="publicaciones">Publicaciones</h2>
+          <p class="prod-intro" data-i18n="prodIntro">Artículos y comunicaciones a congresos de los que soy autor. Esta sección recoge mi trabajo de investigación; los temas de arriba son divulgación.</p>
+        </div>
+        <dl class="prod-cifras" id="prodCifras"></dl>
+      </div>
+      <div class="filtros" id="prodFiltros" role="tablist"></div>
+      <ol class="pub-lista" id="pubLista"></ol>
+
+      <div class="en-curso" id="enCurso" hidden>
+        <figure class="en-curso-gif"><img src="img/investigador-trabajando.gif" alt="Gallo investigador con bata pensando: the researcher is working on it" loading="lazy" width="504" height="506"></figure>
+        <div class="en-curso-txt">
+          <p class="sobretitulo" data-i18n="enCursoEtq">En curso</p>
+          <h3 data-i18n="enCursoTit">Trabajos en marcha</h3>
+          <ul class="curso-lista" id="cursoLista"></ul>
+        </div>
+      </div>
+    </section>
+
     <section id="sobre" class="sobre">
       <h2 data-i18n="sobreMi">Sobre mí</h2>
       <div class="sobre-cuerpo">
@@ -111,10 +134,11 @@
     <div id="modalCont"></div>
   </dialog>
 
-  <script src="data.js?v=202611101725"></script>
-  <script src="topic.js?v=202611101725"></script>
+  <script src="data.js?v=202611101739"></script>
+  <script src="produccion.js?v=202611101739"></script>
+  <script src="topic.js?v=202611101739"></script>
   <!-- Estadísticas de visitas sin cookies (GoatCounter) -->
   <script data-goatcounter="https://rafaeljl.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-  <script src="script.js?v=202611101725"></script>
+  <script src="script.js?v=202611101739"></script>
 </body>
 </html>

@@ -18,6 +18,9 @@
       avisoVideo: "Estoy preparando un vídeo sobre este tema. Aparecerá aquí en cuanto se publique.", irCanal: "Ir al canal de YouTube",
       imgs: "Imágenes", vidsRel: "Vídeos relacionados", refs: "Referencias y enlaces", correo: "Correo",
       aModoOscuro: "Cambiar a modo oscuro", aModoClaro: "Cambiar a modo claro", tituloVideo: "Vídeo de YouTube",
+      publicaciones: "Publicaciones", prodEtq: "Producción científica", prodIntro: "Artículos y comunicaciones a congresos de los que soy autor. Esta sección recoge mi trabajo de investigación; los temas de arriba son divulgación.",
+      articulo: "Artículo", articulos: "Artículos", congreso: "Congreso", congresos: "Congresos", todas: "Todas", enCursoEtq: "En curso", enCursoTit: "Trabajos en marcha",
+      sinCongresos: "Pronto añadiré aquí mis comunicaciones a congresos.", copiarRef: "Copiar referencia", refCopiada: "Referencia copiada ✓", publicados: "Artículos publicados", enMarcha: "En curso",
       archivo: "Archivo", archivoTit: "Archivo del Tema del día", archivoIntro: "Todos los hallazgos publicados cada noche, del más reciente al más antiguo.",
       archivoCompleto: "Archivo completo", buscarArchivo: "Buscar en el archivo…", todasAreas: "Todas las áreas", nTemas: (n) => `${n} tema${n === 1 ? "" : "s"}`,
       buscar: "Buscar", buscarPh: "Escribe una palabra: dolor, glía, ejercicio…", sinRes: "No hay resultados para esa búsqueda.", nRes: (n) => `${n} resultado${n === 1 ? "" : "s"}`, atajo: "Pulsa / en cualquier momento para buscar.",
@@ -37,6 +40,9 @@
       avisoVideo: "I'm preparing a video on this topic. It will appear here as soon as it's published.", irCanal: "Go to the YouTube channel",
       imgs: "Images", vidsRel: "Related videos", refs: "References and links", correo: "Email",
       aModoOscuro: "Switch to dark mode", aModoClaro: "Switch to light mode", tituloVideo: "YouTube video",
+      publicaciones: "Publications", prodEtq: "Research output", prodIntro: "Journal articles and conference contributions I have authored. This section covers my research; the topics above are science communication.",
+      articulo: "Article", articulos: "Articles", congreso: "Conference", congresos: "Conferences", todas: "All", enCursoEtq: "In progress", enCursoTit: "Work in progress",
+      sinCongresos: "My conference contributions will be added here soon.", copiarRef: "Copy reference", refCopiada: "Reference copied ✓", publicados: "Published articles", enMarcha: "In progress",
       archivo: "Archive", archivoTit: "Topic of the day archive", archivoIntro: "Every finding published each night, newest first.",
       archivoCompleto: "Full archive", buscarArchivo: "Search the archive…", todasAreas: "All areas", nTemas: (n) => `${n} topic${n === 1 ? "" : "s"}`,
       buscar: "Search", buscarPh: "Type a word: pain, glia, exercise…", sinRes: "No results for that search.", nRes: (n) => `${n} result${n === 1 ? "" : "s"}`, atajo: "Press / anytime to search.",
@@ -287,6 +293,65 @@
     if (preguntas.length < 2) $("pOtra").remove();
     else $("pOtra").onclick = () => { actual = (actual + 1) % preguntas.length; mostrar(actual); };
   }
+
+  // ---------- Producción científica (produccion.js) ----------
+  const P = window.PRODUCCION;
+  if (P && ((P.publicaciones || []).length || (P.enCurso || []).length)) {
+    $("publicaciones").hidden = false;
+    const pubs = (P.publicaciones || []).slice().sort((a, b) => (b.anio || 0) - (a.anio || 0) || (b.mes || 0) - (a.mes || 0));
+    const nArt = pubs.filter((x) => x.tipo !== "congreso").length, nCon = pubs.filter((x) => x.tipo === "congreso").length;
+    const curso = P.enCurso || [];
+    $("prodCifras").innerHTML = `<div><dt>${TXT.publicados}</dt><dd>${nArt}</dd></div>` + (nCon ? `<div><dt>${TXT.congresos}</dt><dd>${nCon}</dd></div>` : "") + (curso.length ? `<div><dt>${TXT.enMarcha}</dt><dd>${curso.length}</dd></div>` : "");
+    const yo = /(Rafael\s+)?Jim[eé]nez[\s-]+L[oó]pez(,?\s+R\.?)?/i;
+    const autoresHtml = (a) => esc(a).replace(yo, (m) => `<strong class="yo">${m}</strong>`);
+    const mesTxt = (x) => x.mes ? new Date(x.anio, x.mes - 1, 15).toLocaleDateString(LOCALE, { month: "short" }).replace(".", "") : "";
+    const enlaceDe = (x) => x.doi ? "https://doi.org/" + x.doi : x.url || "";
+    const referencia = (x) => {
+      const fuente = x.tipo === "congreso"
+        ? `${x.revista}${x.lugar ? ", " + x.lugar : ""}${x.formato ? ` [${x.formato}]` : ""}`
+        : `${x.revista}${x.volumen ? ", " + x.volumen : ""}${x.numero ? `(${x.numero})` : ""}${x.paginas ? ", " + x.paginas : ""}`;
+      return `${x.autores} (${x.anio}). ${x.titulo}. ${fuente}.${enlaceDe(x) ? " " + enlaceDe(x) : ""}`;
+    };
+    let fProd = "todas";
+    const pintarProd = () => {
+      const lista = pubs.filter((x) => fProd === "todas" || (fProd === "congreso" ? x.tipo === "congreso" : x.tipo !== "congreso"));
+      $("prodFiltros").innerHTML = [["todas", TXT.todas, pubs.length], ["articulo", TXT.articulos, nArt], ["congreso", TXT.congresos, nCon]]
+        .map(([k, n, c]) => `<button type="button" role="tab" data-p="${k}" aria-selected="${k === fProd}">${n} <span class="cuenta">${c}</span></button>`).join("");
+      $("pubLista").innerHTML = lista.length ? lista.map((x) => {
+        const cong = x.tipo === "congreso", link = enlaceDe(x);
+        const fuente = cong
+          ? `<span class="pub-revista">${esc(x.revista || "")}</span>${x.lugar ? ` · ${esc(x.lugar)}` : ""}`
+          : `<span class="pub-revista">${esc(x.revista || "")}</span>${x.volumen ? ` · ${esc(x.volumen)}${x.numero ? `(${esc(x.numero)})` : ""}` : ""}${x.paginas ? `, ${esc(x.paginas)}` : ""}`;
+        return `<li class="pub ${cong ? "es-congreso" : "es-articulo"}">
+          <div class="pub-fecha"><span class="pub-anio">${esc(x.anio || "")}</span><span class="pub-mes">${esc(mesTxt(x))}</span></div>
+          <div class="pub-cuerpo">
+            <div class="pub-etqs"><span class="pub-tipo">${cong ? TXT.congreso : TXT.articulo}</span>${tx(x, "estudio") || x.formato ? `<span class="pub-estudio">${esc(tx(x, "estudio") || x.formato)}</span>` : ""}</div>
+            <h3>${link ? `<a href="${esc(link)}" target="_blank" rel="noopener">${esc(tx(x, "titulo"))}</a>` : esc(tx(x, "titulo"))}</h3>
+            <p class="pub-autores">${autoresHtml(x.autores || "")}</p>
+            <p class="pub-fuente">${fuente}</p>
+            <div class="pub-acciones">
+              ${x.doi ? `<a href="${esc(link)}" target="_blank" rel="noopener">DOI: ${esc(x.doi)}</a>` : link ? `<a href="${esc(link)}" target="_blank" rel="noopener">${TXT.verFuente}</a>` : ""}
+              <button type="button" class="copiar-ref" data-ref="${esc(referencia(x))}">${TXT.copiarRef}</button>
+            </div>
+          </div>
+        </li>`;
+      }).join("") : `<li class="pub-vacio">${fProd === "congreso" ? TXT.sinCongresos : TXT.vacio}</li>`;
+    };
+    $("prodFiltros").addEventListener("click", (e) => { const b = e.target.closest("button[data-p]"); if (b) { fProd = b.dataset.p; pintarProd(); } });
+    $("pubLista").addEventListener("click", async (e) => {
+      const b = e.target.closest(".copiar-ref"); if (!b) return;
+      try { await navigator.clipboard.writeText(b.dataset.ref); } catch (err) {}
+      b.textContent = TXT.refCopiada; b.classList.add("ok");
+      setTimeout(() => { b.textContent = TXT.copiarRef; b.classList.remove("ok"); }, 1800);
+    });
+    pintarProd();
+    if (curso.length) {
+      $("enCurso").hidden = false;
+      $("cursoLista").innerHTML = curso.map((x) => `<li>
+        <div class="pub-etqs"><span class="curso-estado">${esc(tx(x, "estado") || TXT.enMarcha)}</span>${tx(x, "estudio") ? `<span class="pub-estudio">${esc(tx(x, "estudio"))}</span>` : ""}</div>
+        <p class="curso-titulo">${esc(tx(x, "titulo"))}</p>${tx(x, "nota") ? `<p class="curso-nota">${esc(tx(x, "nota"))}</p>` : ""}</li>`).join("");
+    }
+  } else { document.querySelector('a[href="#publicaciones"]')?.remove(); }
 
   // ---------- Temas ----------
   const temas = (S.temas || []).slice().sort((a, b) => String(b.fecha || "").localeCompare(String(a.fecha || "")));

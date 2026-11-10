@@ -429,3 +429,73 @@ dialog.lectura .progreso { opacity: 1; }
   .archivo-cuerpo { padding-left: .25rem; }
 }
 @media (max-width: 370px) { .barra nav a { display: none; } }
+
+/* ===== Producción científica ===== */
+.produccion { position: relative; padding: 3.5rem 2.5rem 3rem; margin: 1rem 0 4rem; background: var(--papel); border: 1px solid var(--linea); box-shadow: 0 30px 60px -45px rgba(90,50,20,.45); }
+.produccion::before { content: ""; position: absolute; left: -1px; right: -1px; top: -1px; height: 3px; background: linear-gradient(90deg, var(--acento), var(--ambar)); }
+.prod-cab { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: end; margin-bottom: 2rem; }
+.prod-cab h2 { font-size: 2.3rem; position: relative; padding-bottom: .6rem; }
+.prod-cab h2::after { content: ""; position: absolute; left: 0; bottom: 0; width: 2.5rem; height: 2px; background: var(--ambar); }
+.prod-intro { margin: 1rem 0 0; max-width: 58ch; font: 400 1.08rem/1.6 var(--serif); color: var(--suave); }
+.prod-cifras { display: flex; gap: 2rem; margin: 0; }
+.prod-cifras div { text-align: right; }
+.prod-cifras dt { font-size: .68rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--suave); }
+.prod-cifras dd { margin: .15rem 0 0; font: 500 2.6rem/1 var(--serif); color: var(--acento); }
+.produccion .filtros { margin-bottom: .5rem; }
+.produccion .filtros .cuenta { font-size: .72rem; color: var(--suave); margin-left: .2rem; }
+
+.pub-lista { list-style: none; margin: 0; padding: 0; }
+.pub { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1.5rem; padding: 1.75rem 0; border-bottom: 1px solid var(--linea); }
+.pub:last-child { border-bottom: 0; }
+.pub-fecha { display: flex; flex-direction: column; gap: .2rem; padding-top: .15rem; }
+.pub-anio { font: 500 1.6rem/1 var(--serif); color: var(--tinta); }
+.pub-mes { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--suave); }
+.pub-etqs { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem; margin-bottom: .6rem; }
+.pub-tipo { font-size: .66rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: .22rem .55rem; border-radius: 2px; }
+.es-articulo .pub-tipo { background: var(--acento); color: var(--papel); }
+.es-congreso .pub-tipo { background: transparent; color: var(--acento); border: 1px solid var(--ambar); }
+.es-congreso { border-left: 2px dashed color-mix(in srgb, var(--ambar) 55%, transparent); padding-left: 1rem; }
+.pub-estudio { font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--suave); }
+.pub h3 { font: 500 1.3rem/1.35 var(--serif); color: var(--tinta); margin: 0; }
+.pub h3 a { color: inherit; text-decoration: none; background-image: linear-gradient(var(--ambar), var(--ambar)); background-size: 0 1px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size .3s, color .15s; }
+.pub h3 a:hover { color: var(--acento); background-size: 100% 1px; }
+.pub-autores { margin: .55rem 0 0; font-size: .9rem; line-height: 1.5; color: var(--texto); }
+.pub-autores .yo { font-weight: 600; color: var(--tinta); border-bottom: 1px solid var(--ambar); }
+.pub-fuente { margin: .35rem 0 0; font-size: .9rem; color: var(--suave); }
+.pub-revista { font: italic 500 1rem var(--serif); color: var(--tinta); }
+.pub-acciones { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.25rem; margin-top: .8rem; font-size: .82rem; }
+.pub-acciones a { font-weight: 600; }
+.copiar-ref { background: none; border: 0; padding: 0; cursor: pointer; font: 600 .82rem var(--sans); color: var(--suave); text-decoration: underline; text-underline-offset: 3px; }
+.copiar-ref:hover { color: var(--tinta); }
+.copiar-ref.ok { color: var(--bien); text-decoration: none; }
+.pub-vacio { padding: 2rem 0; font: italic 400 1.1rem var(--serif); color: var(--suave); }
+
+/* En curso */
+.en-curso { display: grid; grid-template-columns: 210px 1fr; gap: 2.25rem; align-items: center; margin-top: 2.5rem; padding: 2rem; background: color-mix(in srgb, var(--ambar) 7%, var(--papel)); border: 1px dashed color-mix(in srgb, var(--ambar) 55%, var(--linea)); }
+.en-curso-gif { margin: 0; background: #fff; border: 1px solid var(--linea); padding: .4rem; box-shadow: 0 16px 30px -22px rgba(90,50,20,.5); transform: rotate(-1.5deg); }
+.en-curso-gif img { width: 100%; height: auto; image-rendering: pixelated; }
+.en-curso h3 { font: 500 1.6rem var(--serif); color: var(--tinta); margin: 0 0 1rem; }
+.en-curso .sobretitulo { margin-bottom: .6rem; }
+.curso-lista { list-style: none; margin: 0; padding: 0; }
+.curso-lista li { padding: 1rem 0; border-top: 1px solid color-mix(in srgb, var(--ambar) 30%, var(--linea)); }
+.curso-estado { display: inline-flex; align-items: center; gap: .45rem; font-size: .66rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--acento); }
+.curso-estado::before { content: ""; width: .5rem; height: .5rem; border-radius: 50%; background: var(--ambar); animation: pulso 1.8s ease-in-out infinite; }
+@keyframes pulso { 50% { opacity: .3; transform: scale(.7); } }
+.curso-titulo { margin: 0; font: 500 1.15rem/1.4 var(--serif); color: var(--tinta); }
+.curso-nota { margin: .35rem 0 0; font-size: .88rem; color: var(--suave); }
+
+@media (max-width: 900px) {
+  .produccion { padding: 2.5rem 1.5rem 2rem; }
+  .prod-cab { grid-template-columns: 1fr; }
+  .prod-cifras div { text-align: left; }
+  .en-curso { grid-template-columns: 1fr; justify-items: start; }
+  .en-curso-gif { width: 180px; }
+}
+@media (max-width: 600px) {
+  .produccion { padding: 2rem 1.1rem 1.5rem; margin-left: -.5rem; margin-right: -.5rem; }
+  .pub { grid-template-columns: 1fr; gap: .4rem; }
+  .pub-fecha { flex-direction: row; align-items: baseline; gap: .6rem; }
+  .pub-anio { font-size: 1.2rem; }
+  .en-curso { padding: 1.5rem 1.1rem; }
+}
+@media (prefers-reduced-motion: reduce) { .curso-estado::before { animation: none; } }
