@@ -428,3 +428,4 @@ dialog.lectura .progreso { opacity: 1; }
   .archivo-filtros select { max-width: none; }
   .archivo-cuerpo { padding-left: .25rem; }
 }
+@media (max-width: 370px) { .barra nav a { display: none; } }
