@@ -9,6 +9,30 @@
    ===================================================================== */
 window.TOPIC_DIA = [
   {
+    fecha: "2026-11-10",
+    area: "Salud de la mujer",
+    area_en: "Women's health",
+    titulo: "Moverse en la menopausia mejora el ánimo y la calidad de vida",
+    titulo_en: "Staying active during menopause lifts mood and quality of life",
+    resumen:
+      "Una revisión del University College London, publicada en la revista Menopause, reunió 12 ensayos clínicos con más de 1.000 mujeres en la perimenopausia o al inicio de la posmenopausia. " +
+      "Las actividades aeróbicas, como caminar, bailar o hacer zumba, fueron las que más redujeron los síntomas depresivos y mejoraron la calidad de vida, mientras que el yoga, el taichí o el pilates mejoraron sobre todo el bienestar psicológico. " +
+      "Los propios autores avisan de que muchos ensayos eran pequeños, muy distintos entre sí y con riesgo de sesgo, así que hacen falta estudios mejores.",
+    resumen_en:
+      "A review led by University College London, published in the journal Menopause, pooled 12 clinical trials involving more than 1,000 women in perimenopause or early postmenopause. " +
+      "Aerobic activities such as walking, dancing or Zumba did the most to reduce depressive symptoms and improve quality of life, while yoga, tai chi or Pilates mainly improved psychological wellbeing. " +
+      "The authors caution that many trials were small, very different from one another and at risk of bias, so better studies are needed.",
+    fuente: "Menopause (vía News-Medical / UCL)",
+    url: "https://news-medical.net/news/20261013/Exercise-boosts-psychological-wellbeing-for-menopausal-women.aspx",
+    pregunta: "Según la revisión, ¿qué tipo de actividad redujo más los síntomas depresivos durante la menopausia?",
+    pregunta_en: "According to the review, which type of activity did the most to reduce depressive symptoms during menopause?",
+    opciones: ["Solo estiramientos suaves", "Ninguna actividad tuvo efecto", "Actividades aeróbicas como caminar o bailar", "Levantar pesas muy pesadas"],
+    opciones_en: ["Gentle stretching only", "No activity had any effect", "Aerobic activities such as walking or dancing", "Lifting very heavy weights"],
+    correcta: 2,
+    explicacion: "Las actividades aeróbicas fueron las que más redujeron los síntomas depresivos y mejoraron la calidad de vida; el yoga o el taichí ayudaron sobre todo al bienestar psicológico. Aun así, los ensayos eran pocos y de calidad desigual.",
+    explicacion_en: "Aerobic activities did the most to reduce depressive symptoms and improve quality of life; yoga or tai chi mainly helped psychological wellbeing. Even so, the trials were few and of uneven quality."
+  },
+  {
     fecha: "2026-11-09",
     area: "Obesidad y dolor articular",
     area_en: "Obesity and joint pain",
