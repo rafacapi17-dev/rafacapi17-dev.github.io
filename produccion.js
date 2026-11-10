@@ -83,5 +83,13 @@ window.PRODUCCION = {
       estado: "En revisión por pares",
       estado_en: "Under peer review",
     },
+    {
+      estudio: "Revisión sistemática",
+      estudio_en: "Systematic review",
+      titulo: "Gemelos digitales (human digital twins) para la medición de variables de salud",
+      titulo_en: "Human digital twins for measuring health variables",
+      estado: "En redacción",
+      estado_en: "In preparation",
+    },
   ],
 };
