@@ -507,7 +507,9 @@ dialog.lectura .progreso { opacity: 1; }
 .puerta-aula:hover { transform: translate(-2px, -2px); box-shadow: 9px 9px 0 var(--ambar); }
 .puerta-aula:active { transform: translate(3px, 3px); box-shadow: 3px 3px 0 var(--ambar); }
 :root[data-tema="oscuro"] .puerta-aula { border-color: #eceae5; }
-.puerta-gif { display: block; width: 96px; background: #fff; border: 2px solid var(--tinta); padding: 2px; }
+.puerta-gif { display: block; width: 104px; margin: -1.4rem 0 -.6rem; transition: transform .25s; }
+.puerta-aula:hover .puerta-gif { transform: translateY(-4px) rotate(-3deg); }
+:root[data-tema="oscuro"] .puerta-gif img { filter: drop-shadow(0 0 1px rgba(236,234,229,.55)); }
 .puerta-gif img { width: 100%; height: auto; image-rendering: pixelated; }
 .puerta-txt { display: flex; flex-direction: column; gap: .3rem; }
 .puerta-etq { font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--acento); }

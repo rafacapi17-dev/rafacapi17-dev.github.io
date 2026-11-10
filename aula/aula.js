@@ -38,20 +38,26 @@
   let estado = "inicio", t0 = 0, temp = null;
   let datos = leer("aulaReaccion", { mejor: null, intentos: 0 });
   const pintarMarcas = () => { $("rMejor").textContent = datos.mejor ? datos.mejor + " ms" : "—"; $("rIntentos").textContent = datos.intentos; };
+  const POSE = (n) => `../img/gallo/gallo-${n}.png`;
+  const pose = (n) => { const i = $("rPose"); if (i) i.src = POSE(n); };
+  ["entusiasmado", "pensando", "camina"].forEach((n) => { const i = new Image(); i.src = POSE(n); });
   const poner = (e, titulo, texto) => { estado = e; zona.dataset.estado = e; $("rTitulo").textContent = titulo; $("rTexto").textContent = texto; };
   const valorar = (ms) => ms < 200 ? "¡Reflejos de portero! ⚡" : ms < 260 ? "¡Muy rápido!" : ms < 330 ? "Dentro de lo normal. ¿Lo mejoras?" : "Un poco lento… ¿tienes sueño? 😴";
   const accion = () => {
     if (estado === "inicio" || estado === "resultado" || estado === "pronto") {
+      pose("fonendo");
       poner("espera", "Espera…", "Mantén el dedo preparado y no toques todavía.");
       temp = setTimeout(() => { poner("ya", "¡YA!", "¡Toca!"); t0 = performance.now(); }, 1500 + Math.random() * 2500);
     } else if (estado === "espera") {
       clearTimeout(temp);
+      pose("pensando");
       poner("pronto", "¡Demasiado pronto!", "Tu cerebro se ha adelantado. Toca para intentarlo otra vez.");
     } else if (estado === "ya") {
       const ms = Math.round(performance.now() - t0);
       datos.intentos++;
       if (!datos.mejor || ms < datos.mejor) datos.mejor = ms;
       guardar("aulaReaccion", datos); pintarMarcas();
+      pose(ms < 260 ? "entusiasmado" : ms < 330 ? "de-pie" : "camina");
       poner("resultado", ms + " ms", valorar(ms) + " Toca para repetir.");
     }
   };

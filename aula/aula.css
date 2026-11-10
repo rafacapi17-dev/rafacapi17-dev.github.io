@@ -186,3 +186,15 @@ footer div { max-width: 1140px; margin: 0 auto; padding: 1.5rem; font-size: .85r
   .r-titulo { font-size: 1.6rem; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* Poses del gallo */
+.bloque { position: relative; }
+.pose { position: absolute; right: 0; top: 2.2rem; width: 120px; height: auto; image-rendering: pixelated; pointer-events: none; animation: flota 3.5s ease-in-out infinite; }
+.bloque:nth-of-type(even) .pose { animation-delay: -1.7s; }
+@keyframes flota { 50% { transform: translateY(-6px); } }
+.pose-lab { float: right; width: 96px; height: auto; margin: -.5rem 0 .5rem 1rem; image-rendering: pixelated; }
+.pose-fija { image-rendering: pixelated; }
+.indagar-logo.pose-fija { width: 170px; }
+:root[data-tema="oscuro"] .pose, :root[data-tema="oscuro"] .pose-lab, :root[data-tema="oscuro"] .pose-fija { filter: drop-shadow(0 0 1px rgba(236,234,229,.55)); }
+@media (max-width: 900px) { .pose { width: 84px; top: 2.4rem; } }
+@media (max-width: 600px) { .pose { width: 64px; top: 2.6rem; } .bloque-cab { padding-right: 70px; } .pose-lab { width: 72px; } }
