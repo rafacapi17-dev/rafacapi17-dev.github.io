@@ -567,6 +567,13 @@
     if (e.key !== "/" || e.metaKey || e.ctrlKey || /input|textarea|select/i.test(document.activeElement.tagName)) return;
     e.preventDefault(); location.hash = "buscar";
   });
+  // Cuenta en GoatCounter las vistas de cada tema, del archivo y del buscador
+  const contarVista = () => {
+    const h = location.hash;
+    if (!/^#(tema-|dia-|archivo|buscar)/.test(h) || !window.goatcounter || !window.goatcounter.count) return;
+    window.goatcounter.count({ path: "/" + h.slice(1), title: document.title });
+  };
+  window.addEventListener("hashchange", () => setTimeout(contarVista, 50));
   window.addEventListener("hashchange", deHash);
   deHash();
 })();
