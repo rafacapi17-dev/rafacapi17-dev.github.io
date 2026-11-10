@@ -237,7 +237,11 @@ dialog[open] { animation: lateral .28s ease; }
   .sobre { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
-  .barra nav a:not([href="#temas"]):not([href="#archivo"]) { display: none; }
+  .barra nav a:not([href="#archivo"]) { display: none; }
+  .barra-in { padding-left: 1rem; padding-right: 1rem; }
+  .controles { gap: .3rem; }
+  .barra nav { gap: .7rem; }
+  .marca { gap: .45rem; }
   .marca-txt { font-size: 1.2rem; }
   .logo { width: 44px; height: 44px; }
   .barra nav { gap: 1rem; }
