@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aula · RafaelJL</title>
+  <meta name="description" content="Ciencia para institutos y curiosos: charlas, experimentos y mitos sobre el cuerpo, el cerebro y el dolor.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Aula RafaelJL · Ciencia para curiosos">
+  <meta property="og:description" content="Charlas, experimentos y mitos sobre el cuerpo, el cerebro y el dolor.">
+  <meta property="og:image" content="https://rafacapi17-dev.github.io/img/portada-compartir.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="../img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&family=Silkscreen&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="aula.css?v=202611101855">
+  <script>
+    try {
+      var t = localStorage.getItem("tema");
+      if (t !== "claro" && t !== "oscuro") t = matchMedia("(prefers-color-scheme: dark)").matches ? "oscuro" : "claro";
+      document.documentElement.dataset.tema = t;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <header class="barra">
+    <div class="barra-in">
+      <a class="marca" href="./" aria-label="Aula RafaelJL">
+        <img class="logo logo-claro" src="../img/logo-gallo.png" alt="" width="44" height="44">
+        <img class="logo logo-oscuro" src="../img/logo-gallo-oscuro.png" alt="" width="44" height="44">
+        <span class="marca-txt">Rafael<span>JL</span></span>
+        <span class="chapa">Aula</span>
+      </a>
+      <nav>
+        <a href="#charlas">Charlas</a>
+        <a href="#laboratorio">Laboratorio</a>
+        <a href="#mitos">¿Mito o ciencia?</a>
+        <a class="a-madre" href="../">Web principal <span aria-hidden="true">↗</span></a>
+        <button type="button" class="ctrl" id="btnTema" aria-label="Cambiar modo claro u oscuro">
+          <svg class="ico-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+          <svg class="ico-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-txt">
+        <p class="pixel-etq">▸ Ciencia para curiosos</p>
+        <h1>Tu cuerpo es el experimento más <em>raro</em> que vas a conocer.</h1>
+        <p class="intro">Charlas, experimentos y mitos sobre el cerebro, el dolor y el movimiento, pensados para institutos. Sin fórmulas raras: con preguntas, retos y alguna que otra sorpresa.</p>
+        <div class="botones">
+          <a class="btn btn-pixel" href="#laboratorio">Probar un experimento</a>
+          <a class="btn btn-linea" href="#charlas">Ver las charlas</a>
+        </div>
+      </div>
+      <figure class="ventana hero-ventana">
+        <div class="ventana-barra"><span class="pixel">investigador.exe</span><span class="puntos" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <img class="pixelado" src="../img/investigador-trabajando.gif" alt="Gallo investigador con bata y estetoscopio pensando" width="504" height="506">
+      </figure>
+    </section>
+
+    <section id="charlas" class="bloque">
+      <div class="bloque-cab"><p class="pixel-etq">01 · Charlas</p><h2>Charlas para tu instituto</h2>
+        <p>Cada charla dura una clase y está pensada para participar, no solo para escuchar.</p></div>
+      <div class="rejilla" id="charlasLista"></div>
+    </section>
+
+    <section id="laboratorio" class="bloque">
+      <div class="bloque-cab"><p class="pixel-etq">02 · Laboratorio</p><h2>Experimentos para hacer desde el móvil</h2>
+        <p>Pruébalos tú, o en clase con toda la gente a la vez.</p></div>
+      <div class="lab">
+        <div class="ventana reaccion" id="reaccion">
+          <div class="ventana-barra"><span class="pixel">reaccion.exe</span><span class="puntos" aria-hidden="true"><i></i><i></i><i></i></span></div>
+          <button type="button" class="reaccion-zona" id="zona" data-estado="inicio">
+            <span class="r-titulo" id="rTitulo">¿Cómo de rápido es tu cerebro?</span>
+            <span class="r-texto" id="rTexto">Toca aquí para empezar. Cuando el recuadro se vuelva naranja, ¡toca lo más rápido que puedas!</span>
+          </button>
+          <div class="reaccion-pie"><span>Tu mejor marca: <b id="rMejor">—</b></span><span>Intentos: <b id="rIntentos">0</b></span></div>
+        </div>
+        <div class="lab-explica">
+          <h3>¿Qué estás midiendo?</h3>
+          <p>Tus ojos ven el cambio de color, la señal viaja al cerebro, el cerebro decide y manda la orden a tu dedo. Todo eso, en una fracción de segundo.</p>
+          <p>La mayoría de la gente tarda entre <strong>200 y 300 milisegundos</strong>. Lo curioso: los nervios son rapidísimos, así que casi todo ese tiempo se lo pasa tu cerebro <strong>procesando y decidiendo</strong>.</p>
+          <p class="nota">Prueba a repetirlo con sueño, después de hacer deporte o mientras alguien te habla. ¿Cambia tu marca?</p>
+        </div>
+      </div>
+      <div class="rejilla mini" id="expLista"></div>
+    </section>
+
+    <section id="mitos" class="bloque">
+      <div class="bloque-cab"><p class="pixel-etq">03 · ¿Mito o ciencia?</p><h2>¿Mito o ciencia?</h2>
+        <p>Lee la frase, decide y toca la tarjeta para descubrir la respuesta.</p></div>
+      <div class="marcador" id="marcador" aria-live="polite"></div>
+      <div class="rejilla mitos" id="mitosLista"></div>
+    </section>
+
+    <section id="investigador" class="bloque">
+      <div class="bloque-cab"><p class="pixel-etq">04 · ¿Quién soy?</p><h2>¿Cómo se llega a ser investigador?</h2>
+        <p>Soy Rafael, fisioterapeuta e investigador. No hace falta ser un genio: hace falta curiosidad y no dejar de hacer preguntas.</p></div>
+      <ol class="camino" id="camino"></ol>
+    </section>
+
+    <section class="bloque">
+      <div class="bloque-cab"><p class="pixel-etq">05 · Próximamente</p><h2>Lo que está por llegar al Aula</h2></div>
+      <ul class="ruta" id="ruta"></ul>
+    </section>
+
+    <section class="indagar">
+      <div class="indagar-txt">
+        <p class="pixel-etq">▸ Nivel siguiente</p>
+        <h2>¿Quieres indagar más?</h2>
+        <p>En la web principal encontrarás los temas completos, un hallazgo científico nuevo cada día con su pregunta y los artículos que publico como investigador.</p>
+        <a class="btn btn-pixel" href="../">Ir a la web principal →</a>
+      </div>
+      <img class="indagar-logo logo-claro" src="../img/logo-gallo.png" alt="" width="200" height="200">
+      <img class="indagar-logo logo-oscuro" src="../img/logo-gallo-oscuro.png" alt="" width="200" height="200">
+    </section>
+  </main>
+
+  <footer><div>© <span id="anio"></span> RafaelJL · Aula · <a href="../">Web principal</a></div></footer>
+
+  <script data-goatcounter="https://rafaeljl.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+  <script src="datos.js?v=202611101855"></script>
+  <script src="aula.js?v=202611101855"></script>
+</body>
+</html>
