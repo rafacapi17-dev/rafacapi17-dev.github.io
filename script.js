@@ -18,6 +18,11 @@
       avisoVideo: "Estoy preparando un vídeo sobre este tema. Aparecerá aquí en cuanto se publique.", irCanal: "Ir al canal de YouTube",
       imgs: "Imágenes", vidsRel: "Vídeos relacionados", refs: "Referencias y enlaces", correo: "Correo",
       aModoOscuro: "Cambiar a modo oscuro", aModoClaro: "Cambiar a modo claro", tituloVideo: "Vídeo de YouTube",
+      archivo: "Archivo", archivoTit: "Archivo del Tema del día", archivoIntro: "Todos los hallazgos publicados cada noche, del más reciente al más antiguo.",
+      archivoCompleto: "Archivo completo", buscarArchivo: "Buscar en el archivo…", todasAreas: "Todas las áreas", nTemas: (n) => `${n} tema${n === 1 ? "" : "s"}`,
+      buscar: "Buscar", buscarPh: "Escribe una palabra: dolor, glía, ejercicio…", sinRes: "No hay resultados para esa búsqueda.", nRes: (n) => `${n} resultado${n === 1 ? "" : "s"}`, atajo: "Pulsa / en cualquier momento para buscar.",
+      ponteAPrueba: "Ponte a prueba: pregunta del día", verRespuesta: "Ver tu respuesta de hoy", racha: "Racha", mejor: "Mejor", rachaTit: "Días seguidos acertando la pregunta del día (se guarda en este navegador)",
+      compartir: "Compartir", copiarEnlace: "Copiar enlace", copiado: "Enlace copiado ✓", indice: "En este tema", enlaceTema: "Tema", temaDelDia: "Tema del día",
       error: "<strong>No se ha podido leer el contenido (data.js).</strong><br>Revisa el último cambio: suele ser una coma o unas comillas que faltan, o un carácter suelto escrito sin querer.",
     },
     en: {
@@ -32,6 +37,11 @@
       avisoVideo: "I'm preparing a video on this topic. It will appear here as soon as it's published.", irCanal: "Go to the YouTube channel",
       imgs: "Images", vidsRel: "Related videos", refs: "References and links", correo: "Email",
       aModoOscuro: "Switch to dark mode", aModoClaro: "Switch to light mode", tituloVideo: "YouTube video",
+      archivo: "Archive", archivoTit: "Topic of the day archive", archivoIntro: "Every finding published each night, newest first.",
+      archivoCompleto: "Full archive", buscarArchivo: "Search the archive…", todasAreas: "All areas", nTemas: (n) => `${n} topic${n === 1 ? "" : "s"}`,
+      buscar: "Search", buscarPh: "Type a word: pain, glia, exercise…", sinRes: "No results for that search.", nRes: (n) => `${n} result${n === 1 ? "" : "s"}`, atajo: "Press / anytime to search.",
+      ponteAPrueba: "Test yourself: question of the day", verRespuesta: "See today's answer", racha: "Streak", mejor: "Best", rachaTit: "Days in a row answering the question of the day correctly (saved in this browser)",
+      compartir: "Share", copiarEnlace: "Copy link", copiado: "Link copied ✓", indice: "In this topic", enlaceTema: "Topic", temaDelDia: "Topic of the day",
       error: "<strong>The content (data.js) could not be loaded.</strong><br>Check the last change: usually a missing comma or quotation mark, or a stray character.",
     },
   }[idioma];
@@ -126,10 +136,92 @@
   // ---------- Tema del día (topic.js, lo actualiza el resumen nocturno) ----------
   const topics = (window.TOPIC_DIA || []).filter((t) => t && t.titulo);
   const fmtCorta = (f) => { const d = new Date(f + "T12:00:00"); return isNaN(d) ? f : d.toLocaleDateString(LOCALE, { day: "numeric", month: "short" }); };
+  const BASE = location.origin + location.pathname;
+  const urlDe = (hash) => BASE + (EN ? "?lang=en" : "") + "#" + hash;
+  const compartir = (url, titulo) => {
+    const u = encodeURIComponent(url), tt = encodeURIComponent(titulo);
+    return `<div class="compartir"><span class="compartir-etq">${TXT.compartir}</span>` +
+      `<a href="https://wa.me/?text=${encodeURIComponent(titulo + " " + url)}" target="_blank" rel="noopener">WhatsApp</a>` +
+      `<a href="https://x.com/intent/post?text=${tt}&url=${u}" target="_blank" rel="noopener">X</a>` +
+      `<a href="https://www.linkedin.com/sharing/share-offsite/?url=${u}" target="_blank" rel="noopener">LinkedIn</a>` +
+      `<button type="button" class="copiar" data-url="${esc(url)}">${TXT.copiarEnlace}</button></div>`;
+  };
+  document.addEventListener("click", async (e) => {
+    const b = e.target.closest(".copiar");
+    if (!b) return;
+    try { await navigator.clipboard.writeText(b.dataset.url); }
+    catch (err) {
+      const i = document.createElement("textarea"); i.value = b.dataset.url;
+      (b.closest("dialog") || document.body).appendChild(i); i.select(); document.execCommand("copy"); i.remove();
+    }
+    b.textContent = TXT.copiado; b.classList.add("ok");
+    setTimeout(() => { b.textContent = TXT.copiarEnlace; b.classList.remove("ok"); }, 1800);
+  });
+
+  // ---------- Minijuego: pregunta del día con racha (guardada en el navegador) ----------
+  const RKEY = "quizRafaelJL";
+  const leerR = () => { try { return JSON.parse(localStorage.getItem(RKEY)) || { resp: {}, mejor: 0 }; } catch (e) { return { resp: {}, mejor: 0 }; } };
+  const guardarR = (r) => { try { localStorage.setItem(RKEY, JSON.stringify(r)); } catch (e) {} };
+  const conQuiz = topics.filter((t) => t.pregunta && (t.opciones || []).length);
+  const calcRacha = (r) => {
+    let n = 0;
+    for (let i = 0; i < conQuiz.length; i++) {
+      const x = r.resp[conQuiz[i].fecha];
+      if (!x) { if (i === 0) continue; break; }
+      if (!x.ok) break;
+      n++;
+    }
+    return n;
+  };
+  const textoRacha = (r) => { const rc = calcRacha(r); return `${TXT.racha}: <b>${rc}</b> · ${TXT.mejor}: <b>${Math.max(r.mejor || 0, rc)}</b>`; };
+  const pintarQuiz = (cont, q, clave) => {
+    const ops = (EN && q.opciones_en && q.opciones_en.length ? q.opciones_en : q.opciones) || [];
+    const r = leerR();
+    cont.innerHTML = `
+      <div class="quiz-cab"><span>${TXT.preguntaDia}</span><span class="racha" title="${esc(TXT.rachaTit)}">${textoRacha(r)}</span></div>
+      <p class="quiz-preg">${esc(tx(q, "pregunta"))}</p>
+      <ol class="opciones">${ops.map((o, k) => `<li><button type="button" data-k="${k}"><span>${esc(o)}</span><span class="marca-res"></span></button></li>`).join("")}</ol>
+      <div class="respuesta" hidden></div>`;
+    const resolver = (elegida, nuevo) => {
+      const ok = elegida === q.correcta;
+      cont.querySelectorAll(".opciones button").forEach((x, k) => {
+        x.disabled = true;
+        const m = x.querySelector(".marca-res");
+        if (k === q.correcta) { x.classList.add("bien"); m.textContent = TXT.correcta; }
+        else if (k === elegida) { x.classList.add("mal"); m.textContent = TXT.tuResp; }
+        else x.classList.add("atenuada");
+      });
+      const resp = cont.querySelector(".respuesta");
+      resp.innerHTML = `<strong>${ok ? TXT.correcto : TXT.incorrecto}</strong><p>${esc(tx(q, "explicacion"))}</p>`;
+      resp.hidden = false;
+      if (nuevo) {
+        const r2 = leerR();
+        r2.resp[clave] = { k: elegida, ok };
+        r2.mejor = Math.max(r2.mejor || 0, calcRacha(r2));
+        guardarR(r2);
+        const el = cont.querySelector(".racha");
+        el.innerHTML = textoRacha(r2);
+        if (ok) el.classList.add("sube");
+      }
+    };
+    const prev = r.resp[clave];
+    if (prev) resolver(prev.k, false);
+    cont.querySelector(".opciones").onclick = (e) => {
+      const b = e.target.closest("button");
+      if (b && !b.disabled) resolver(+b.dataset.k, true);
+    };
+  };
+
   if (topics.length) {
     const t = topics[0], previos = topics.slice(1, 8);
-    const enlace = (x, clase) => x.url ? `<a class="${clase}" href="${esc(x.url)}" target="_blank" rel="noopener">` : `<span class="${clase}">`;
-    const cierre = (x) => (x.url ? "</a>" : "</span>");
+    // Pregunta: la del tema del día; si aún no tiene, una del banco de preguntas de data.js
+    let q = null, clave = "";
+    if (t.pregunta && (t.opciones || []).length) { q = t; clave = t.fecha; }
+    else if ((S.preguntas || []).length) {
+      const d = new Date(), i = Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 864e5) % S.preguntas.length;
+      q = S.preguntas[i]; clave = "banco-" + d.toISOString().slice(0, 10);
+    }
+    const yaResp = q && leerR().resp[clave];
     $("pregunta").classList.add("topic");
     $("pregunta").innerHTML = `
       <div class="pregunta-cab"><span>${TXT.temaDia}</span><span>${esc(fmtFecha(t.fecha))}</span></div>
@@ -137,8 +229,12 @@
       <h2 id="pTexto">${esc(tx(t, "titulo"))}</h2>
       <p class="topic-resumen">${esc(tx(t, "resumen"))}</p>
       ${t.url ? `<p class="topic-fuente"><a href="${esc(t.url)}" target="_blank" rel="noopener">${TXT.leerNoticia} →</a>${t.fuente ? ` <span>· ${esc(t.fuente)}</span>` : ""}</p>` : ""}
-      ${previos.length ? `<button class="otra" type="button" id="btnAnteriores" aria-expanded="false">${TXT.anteriores}</button>
-      <ul class="topic-anteriores" id="listaAnteriores" hidden>${previos.map((x) => `<li>${enlace(x, "ant")}<span class="ant-fecha">${esc(fmtCorta(x.fecha))}</span>${esc(tx(x, "titulo"))}${cierre(x)}</li>`).join("")}</ul>` : ""}`;
+      ${q ? `<div class="quiz-wrap"><button type="button" class="quiz-abrir" id="quizAbrir">${yaResp ? TXT.verRespuesta : TXT.ponteAPrueba} <span aria-hidden="true">→</span></button><div class="quiz" id="quiz" hidden></div></div>` : ""}
+      <div class="topic-pie">
+        ${previos.length ? `<button class="otra" type="button" id="btnAnteriores" aria-expanded="false">${TXT.anteriores}</button>` : ""}
+        <a class="otra" href="#archivo">${TXT.archivoCompleto} →</a>
+      </div>
+      ${previos.length ? `<ul class="topic-anteriores" id="listaAnteriores" hidden>${previos.map((x) => `<li><a class="ant" href="#dia-${esc(x.fecha)}"><span class="ant-fecha">${esc(fmtCorta(x.fecha))}</span>${esc(tx(x, "titulo"))}</a></li>`).join("")}</ul>` : ""}`;
     const btnAnt = $("btnAnteriores");
     if (btnAnt) btnAnt.onclick = () => {
       const abierta = $("listaAnteriores").hidden;
@@ -146,6 +242,7 @@
       btnAnt.setAttribute("aria-expanded", String(abierta));
       btnAnt.textContent = abierta ? TXT.ocultarAnteriores : TXT.anteriores;
     };
+    if (q) $("quizAbrir").onclick = () => { $("quizAbrir").remove(); $("quiz").hidden = false; pintarQuiz($("quiz"), q, clave); };
   }
   // ---------- Pregunta del día (solo si no hay tema del día) ----------
   const preguntas = topics.length ? [] : S.preguntas || [];
@@ -267,8 +364,9 @@
         ${imgProx ? `<div class="m-media prox"><img src="${esc(imgProx)}" alt="${TXT.proximamente}" onerror="this.remove()"></div>` : ""}
         <p class="aviso-prox">${TXT.enPreparacion}</p>
       </article>`;
-      document.title = `${titulo} · ${tx(S, "nombreWeb")}`;
+      document.title = `${titulo} · RafaelJL`;
       if (!modal.open) modal.showModal();
+      modal.classList.remove("lectura");
       modal.querySelector(".articulo").focus({ preventScroll: true });
       modal.scrollTop = 0;
       return;
@@ -298,20 +396,154 @@
         ${meta(t, texto ? `<span>${minutos(texto)} ${TXT.minLectura}</span>` : "")}
         <h2>${esc(titulo)}</h2>
         ${entradilla ? `<p class="entradilla">${esc(entradilla)}</p>` : ""}
+        ${compartir(urlDe("tema-" + t.id), titulo)}
         ${media}${aviso}
         <div class="cuerpo-texto">${parrafos}</div>
         ${fotos}${vids}${links}
+        <div class="compartir-final"><p>${esc(titulo)}</p>${compartir(urlDe("tema-" + t.id), titulo)}</div>
       </article>`;
-    document.title = `${titulo} · ${tx(S, "nombreWeb")}`;
+    document.title = `${titulo} · RafaelJL`;
     if (!modal.open) modal.showModal();
+    modal.classList.add("lectura");
+    ponerIndice();
     modal.querySelector(".articulo").focus({ preventScroll: true });
     modal.scrollTop = 0;
+    progreso();
+  };
+
+  // Índice lateral (si el artículo tiene 3 o más apartados)
+  const ponerIndice = () => {
+    const art = $("modalCont").querySelector(".articulo");
+    const hs = [...art.querySelectorAll(".cuerpo-texto h4")];
+    if (hs.length < 3) return;
+    hs.forEach((h, i) => (h.id = "sec-" + (i + 1)));
+    const nav = document.createElement("nav");
+    nav.className = "indice";
+    nav.setAttribute("aria-label", TXT.indice);
+    nav.innerHTML = `<span class="indice-etq">${TXT.indice}</span><ol>${hs.map((h) => `<li><a href="#${h.id}" data-sec="${h.id}">${esc(h.textContent)}</a></li>`).join("")}</ol>`;
+    art.querySelector(".cuerpo-texto").before(nav);
+    nav.onclick = (e) => {
+      const a = e.target.closest("a");
+      if (!a) return;
+      e.preventDefault();
+      document.getElementById(a.dataset.sec).scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+    const io = new IntersectionObserver((es) => es.forEach((en) => {
+      if (en.isIntersecting) nav.querySelectorAll("a").forEach((a) => a.classList.toggle("activo", a.dataset.sec === en.target.id));
+    }), { root: modal, rootMargin: "0px 0px -70% 0px" });
+    hs.forEach((h) => io.observe(h));
+  };
+
+  // Barra de progreso de lectura
+  const barra = $("progresoBar");
+  const progreso = () => {
+    const max = modal.scrollHeight - modal.clientHeight;
+    barra.style.transform = `scaleX(${max > 0 ? Math.min(1, modal.scrollTop / max) : 0})`;
+  };
+  modal.addEventListener("scroll", progreso, { passive: true });
+
+  const abrirVista = (html, titulo) => {
+    $("modalCont").innerHTML = html;
+    document.title = `${titulo} · RafaelJL`;
+    modal.classList.remove("lectura");
+    if (!modal.open) modal.showModal();
+    modal.scrollTop = 0;
+  };
+
+  // ---------- Buscador general ----------
+  const norm = (x) => String(x || "").split("").map((c) => c.normalize("NFD")[0]).join("").toLowerCase();
+  const limpio = (x) => String(x || "").replace(/\*\*/g, "").replace(/^(## |[-*•] |> |\d+[.)] )/gm, "").replace(/\s+/g, " ").trim();
+  const indiceBusqueda = [
+    ...temas.filter((t) => !t.proximamente || tx(t, "resumen")).map((t) => ({
+      hash: "tema-" + t.id, etq: nombreCat(t.categoria || "") || TXT.enlaceTema, fecha: t.fecha, titulo: tx(t, "titulo"),
+      cuerpo: limpio([tx(t, "subtitulo"), tx(t, "resumen"), tx(t, "texto")].filter(Boolean).join(" ")),
+    })),
+    ...topics.map((t) => ({ hash: "dia-" + t.fecha, etq: TXT.temaDelDia, fecha: t.fecha, titulo: tx(t, "titulo"), cuerpo: limpio(`${tx(t, "area")}. ${tx(t, "resumen")}`) })),
+  ].map((x) => ({ ...x, nT: norm(x.titulo), nC: norm(x.cuerpo) }));
+  const resaltar = (texto, terminos) => {
+    const n = norm(texto), marcas = new Array(texto.length).fill(false);
+    terminos.forEach((w) => { let i = n.indexOf(w); while (i >= 0) { for (let j = i; j < i + w.length; j++) marcas[j] = true; i = n.indexOf(w, i + w.length); } });
+    let out = "", abierto = false;
+    for (let i = 0; i < texto.length; i++) {
+      if (marcas[i] && !abierto) { out += "<mark>"; abierto = true; }
+      if (!marcas[i] && abierto) { out += "</mark>"; abierto = false; }
+      out += esc(texto[i]);
+    }
+    return out + (abierto ? "</mark>" : "");
+  };
+  const fragmento = (x, terminos) => {
+    const i = Math.max(0, ...terminos.map((w) => x.nC.indexOf(w)).filter((i) => i >= 0).slice(0, 1));
+    const ini = Math.max(0, i - 70), fin = Math.min(x.cuerpo.length, i + 150);
+    return (ini > 0 ? "…" : "") + resaltar(x.cuerpo.slice(ini, fin), terminos) + (fin < x.cuerpo.length ? "…" : "");
+  };
+  const abrirBuscar = () => {
+    abrirVista(`
+      <div class="articulo vista">
+        <div class="meta"><span class="cat">${TXT.buscar}</span></div>
+        <h2>${TXT.buscar}</h2>
+        <input class="campo-buscar" id="qBuscar" type="search" placeholder="${esc(TXT.buscarPh)}" autocomplete="off" aria-label="${TXT.buscar}">
+        <p class="buscar-info" id="qInfo">${TXT.atajo}</p>
+        <ul class="resultados" id="qRes"></ul>
+      </div>`, TXT.buscar);
+    const inp = $("qBuscar");
+    inp.oninput = () => {
+      const terminos = norm(inp.value).split(/\s+/).filter((w) => w.length > 1);
+      if (!terminos.length) { $("qRes").innerHTML = ""; $("qInfo").textContent = TXT.atajo; return; }
+      const res = indiceBusqueda
+        .filter((x) => terminos.every((w) => x.nT.includes(w) || x.nC.includes(w)))
+        .map((x) => ({ x, p: terminos.reduce((a, w) => a + (x.nT.includes(w) ? 3 : 0) + (x.nC.split(w).length - 1), 0) }))
+        .sort((a, b) => b.p - a.p).slice(0, 40);
+      $("qInfo").textContent = res.length ? TXT.nRes(res.length) : TXT.sinRes;
+      $("qRes").innerHTML = res.map(({ x }) => `<li><a href="#${esc(x.hash)}">
+        <span class="meta"><span class="cat">${esc(x.etq)}</span><span>${esc(fmtFecha(x.fecha))}</span></span>
+        <strong>${resaltar(x.titulo, terminos)}</strong><span class="frag">${fragmento(x, terminos)}</span></a></li>`).join("");
+    };
+    setTimeout(() => inp.focus(), 50);
+  };
+
+  // ---------- Archivo del tema del día ----------
+  const abrirArchivo = (fecha) => {
+    const areas = [...new Set(topics.map((t) => tx(t, "area")).filter(Boolean))].sort((a, b) => a.localeCompare(b, LOCALE));
+    abrirVista(`
+      <div class="articulo vista archivo">
+        <div class="meta"><span class="cat">${TXT.temaDelDia}</span><span>${TXT.nTemas(topics.length)}</span></div>
+        <h2>${TXT.archivoTit}</h2>
+        <p class="entradilla">${TXT.archivoIntro}</p>
+        <div class="archivo-filtros">
+          <input class="campo-buscar" id="aQ" type="search" placeholder="${esc(TXT.buscarArchivo)}" aria-label="${esc(TXT.buscarArchivo)}">
+          <select id="aArea" aria-label="${esc(TXT.todasAreas)}"><option value="">${TXT.todasAreas}</option>${areas.map((a) => `<option>${esc(a)}</option>`).join("")}</select>
+        </div>
+        <ol class="archivo-lista" id="aLista">${topics.map((t) => `
+          <li id="dia-${esc(t.fecha)}" data-area="${esc(tx(t, "area"))}" data-txt="${esc(norm(tx(t, "titulo") + " " + tx(t, "resumen") + " " + tx(t, "area")))}">
+            <details${t.fecha === fecha ? " open" : ""}>
+              <summary><span class="ant-fecha">${esc(fmtCorta(t.fecha))}</span><span><span class="topic-area">${esc(tx(t, "area"))}</span><strong>${esc(tx(t, "titulo"))}</strong></span></summary>
+              <div class="archivo-cuerpo">
+                <p>${esc(tx(t, "resumen"))}</p>
+                ${t.url ? `<p class="topic-fuente"><a href="${esc(t.url)}" target="_blank" rel="noopener">${TXT.leerNoticia} →</a>${t.fuente ? ` <span>· ${esc(t.fuente)}</span>` : ""}</p>` : ""}
+                ${compartir(urlDe("dia-" + t.fecha), tx(t, "titulo"))}
+              </div>
+            </details>
+          </li>`).join("")}</ol>
+        <p class="vacio" id="aVacio" hidden>${TXT.sinRes}</p>
+      </div>`, TXT.archivoTit);
+    const filtrar = () => {
+      const terminos = norm($("aQ").value).split(/\s+/).filter(Boolean), area = $("aArea").value;
+      let n = 0;
+      $("aLista").querySelectorAll("li").forEach((li) => {
+        const ok = (!area || li.dataset.area === area) && terminos.every((w) => li.dataset.txt.includes(w));
+        li.hidden = !ok; if (ok) n++;
+      });
+      $("aVacio").hidden = n > 0;
+    };
+    $("aQ").oninput = filtrar; $("aArea").onchange = filtrar;
+    if (fecha) { const li = document.getElementById("dia-" + fecha); if (li) setTimeout(() => li.scrollIntoView({ block: "center" }), 60); }
   };
   const cerrar = () => { if (modal.open) modal.close(); };
   modal.addEventListener("close", () => {
-    document.title = tx(S, "nombreWeb");
+    document.title = "RafaelJL · " + tx(S, "nombreWeb");
     $("modalCont").innerHTML = "";
-    if (location.hash.startsWith("#tema-")) history.replaceState(null, "", location.pathname + location.search + "#temas");
+    modal.classList.remove("lectura");
+    if (/^#(tema-|dia-|archivo|buscar)/.test(location.hash)) history.replaceState(null, "", location.pathname + location.search);
   });
   $("cerrar").onclick = cerrar;
   modal.addEventListener("click", (e) => {
@@ -320,10 +552,21 @@
     if (yt) yt.outerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(yt.dataset.yt)}?autoplay=1&rel=0" title="${TXT.tituloVideo}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
   });
   const deHash = () => {
-    const m = location.hash.match(/^#tema-(.+)$/);
-    const t = m && temas.find((x) => x.id === decodeURIComponent(m[1]));
-    if (t) abrir(t); else cerrar();
+    const h = decodeURIComponent(location.hash);
+    const m = h.match(/^#tema-(.+)$/);
+    const t = m && temas.find((x) => x.id === m[1]);
+    if (t) return abrir(t);
+    const d = h.match(/^#dia-(\d{4}-\d{2}-\d{2})$/);
+    if (h === "#archivo" || d) return abrirArchivo(d && d[1]);
+    if (h === "#buscar") return abrirBuscar();
+    cerrar();
   };
+  $("btnBuscar").onclick = () => { location.hash = "buscar"; };
+  $("btnBuscar").setAttribute("aria-label", TXT.buscar); $("btnBuscar").title = TXT.buscar + " ( / )";
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "/" || e.metaKey || e.ctrlKey || /input|textarea|select/i.test(document.activeElement.tagName)) return;
+    e.preventDefault(); location.hash = "buscar";
+  });
   window.addEventListener("hashchange", deHash);
   deHash();
 })();

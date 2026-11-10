@@ -29,8 +29,12 @@
       <nav>
         <a href="#temas" data-i18n="temas">Temas</a>
         <a href="#pregunta" data-i18n="temaDia">Tema del día</a>
+        <a href="#archivo" data-i18n="archivo">Archivo</a>
         <a href="#sobre" data-i18n="sobreMi">Sobre mí</a>
         <span class="controles">
+          <button type="button" class="ctrl" id="btnBuscar" aria-label="Buscar" title="Buscar ( / )">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+          </button>
           <button type="button" class="ctrl" id="btnIdioma" lang="en" title="Read in English">EN</button>
           <button type="button" class="ctrl" id="btnTema" aria-label="Cambiar a modo oscuro">
             <svg class="ico-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
@@ -84,6 +88,7 @@
   <footer><div id="pie"></div></footer>
 
   <dialog id="modal">
+    <div class="progreso" aria-hidden="true"><span id="progresoBar"></span></div>
     <button class="cerrar" id="cerrar"><span data-i18n="cerrar">Cerrar</span> ✕</button>
     <div id="modalCont"></div>
   </dialog>
