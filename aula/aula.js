@@ -38,7 +38,7 @@
   let estado = "inicio", t0 = 0, temp = null;
   let datos = leer("aulaReaccion", { mejor: null, intentos: 0 });
   const pintarMarcas = () => { $("rMejor").textContent = datos.mejor ? datos.mejor + " ms" : "—"; $("rIntentos").textContent = datos.intentos; };
-  const POSE = (n) => `../img/gallo/gallo-${n}.png`;
+  const POSE = (n) => `../img/gallo/gallo-${n}.png?v=2`;
   const pose = (n) => { const i = $("rPose"); if (i) i.src = POSE(n); };
   ["entusiasmado", "pensando", "camina"].forEach((n) => { const i = new Image(); i.src = POSE(n); });
   const poner = (e, titulo, texto) => { estado = e; zona.dataset.estado = e; $("rTitulo").textContent = titulo; $("rTexto").textContent = texto; };

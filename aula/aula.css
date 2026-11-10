@@ -21,7 +21,7 @@ a { color: var(--acento); }
 h1, h2, h3 { font-family: var(--serif); font-weight: 500; color: var(--tinta); margin: 0; line-height: 1.15; }
 .pixel, .pixel-etq { font-family: var(--pixel); font-weight: 400; letter-spacing: .04em; }
 .pixel-etq { margin: 0 0 1rem; font-size: .9rem; color: var(--acento); text-transform: uppercase; }
-.pixelado { image-rendering: pixelated; }
+.pixelado { image-rendering: auto; }
 :focus-visible { outline: 2px solid var(--ambar); outline-offset: 3px; }
 
 /* Barra */
@@ -189,12 +189,11 @@ footer div { max-width: 1140px; margin: 0 auto; padding: 1.5rem; font-size: .85r
 
 /* Poses del gallo */
 .bloque { position: relative; }
-.pose { position: absolute; right: 0; top: 2.2rem; width: 120px; height: auto; image-rendering: pixelated; pointer-events: none; animation: flota 3.5s ease-in-out infinite; }
+.pose { position: absolute; right: 0; top: 2.2rem; width: 120px; height: auto; pointer-events: none; animation: flota 3.5s ease-in-out infinite; }
 .bloque:nth-of-type(even) .pose { animation-delay: -1.7s; }
 @keyframes flota { 50% { transform: translateY(-6px); } }
-.pose-lab { float: right; width: 96px; height: auto; margin: -.5rem 0 .5rem 1rem; image-rendering: pixelated; }
-.pose-fija { image-rendering: pixelated; }
+.pose-lab { float: right; width: 96px; height: auto; margin: -.5rem 0 .5rem 1rem; }
 .indagar-logo.pose-fija { width: 170px; }
-:root[data-tema="oscuro"] .pose, :root[data-tema="oscuro"] .pose-lab, :root[data-tema="oscuro"] .pose-fija { filter: drop-shadow(0 0 1px rgba(236,234,229,.55)); }
+:root[data-tema="oscuro"] .pose, :root[data-tema="oscuro"] .pose-lab, :root[data-tema="oscuro"] .pose-fija { filter: drop-shadow(0 0 .6px rgba(236,234,229,.9)) drop-shadow(0 0 .6px rgba(236,234,229,.9)); }
 @media (max-width: 900px) { .pose { width: 84px; top: 2.4rem; } }
 @media (max-width: 600px) { .pose { width: 64px; top: 2.6rem; } .bloque-cab { padding-right: 70px; } .pose-lab { width: 72px; } }

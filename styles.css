@@ -473,7 +473,7 @@ dialog.lectura .progreso { opacity: 1; }
 /* En curso */
 .en-curso { display: grid; grid-template-columns: 210px 1fr; gap: 2.25rem; align-items: center; margin-top: 2.5rem; padding: 2rem; background: color-mix(in srgb, var(--ambar) 7%, var(--papel)); border: 1px dashed color-mix(in srgb, var(--ambar) 55%, var(--linea)); }
 .en-curso-gif { margin: 0; background: #fff; border: 1px solid var(--linea); padding: .4rem; box-shadow: 0 16px 30px -22px rgba(90,50,20,.5); transform: rotate(-1.5deg); }
-.en-curso-gif img { width: 100%; height: auto; image-rendering: pixelated; }
+.en-curso-gif img { width: 100%; height: auto; }
 .en-curso h3 { font: 500 1.6rem var(--serif); color: var(--tinta); margin: 0 0 1rem; }
 .en-curso .sobretitulo { margin-bottom: .6rem; }
 .curso-lista { list-style: none; margin: 0; padding: 0; }
@@ -509,8 +509,8 @@ dialog.lectura .progreso { opacity: 1; }
 :root[data-tema="oscuro"] .puerta-aula { border-color: #eceae5; }
 .puerta-gif { display: block; width: 104px; margin: -1.4rem 0 -.6rem; transition: transform .25s; }
 .puerta-aula:hover .puerta-gif { transform: translateY(-4px) rotate(-3deg); }
-:root[data-tema="oscuro"] .puerta-gif img { filter: drop-shadow(0 0 1px rgba(236,234,229,.55)); }
-.puerta-gif img { width: 100%; height: auto; image-rendering: pixelated; }
+:root[data-tema="oscuro"] .puerta-gif img { filter: drop-shadow(0 0 .6px rgba(236,234,229,.9)) drop-shadow(0 0 .6px rgba(236,234,229,.9)); }
+.puerta-gif img { width: 100%; height: auto; }
 .puerta-txt { display: flex; flex-direction: column; gap: .3rem; }
 .puerta-etq { font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--acento); }
 .puerta-txt strong { font: 500 1.45rem/1.25 var(--serif); color: var(--tinta); }
