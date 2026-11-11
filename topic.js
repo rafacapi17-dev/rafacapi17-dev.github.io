@@ -9,6 +9,30 @@
    ===================================================================== */
 window.TOPIC_DIA = [
   {
+    fecha: "2026-11-11",
+    area: "Rehabilitación cardiaca",
+    area_en: "Cardiac rehabilitation",
+    titulo: "El yoga como rehabilitación mejora la vida diaria de personas con insuficiencia cardiaca",
+    titulo_en: "Yoga-based cardiac rehab improves daily life for people with heart failure",
+    resumen:
+      "Un ensayo en 16 hospitales de la India con unas 3.500 personas con insuficiencia cardiaca comparó un programa de yoga (20 sesiones supervisadas en tres meses, más práctica en casa y educación) con la atención habitual reforzada. " +
+      "Quienes hicieron yoga ganaron calidad de vida y caminaron de media unos 25 metros más en la prueba de 6 minutos, aunque no tuvieron menos muertes, ingresos ni ictus. " +
+      "Son resultados preliminares, presentados en el congreso de la American Heart Association y aún no publicados en una revista; además, el grupo de yoga tuvo muchas más sesiones de contacto que el grupo control.",
+    resumen_en:
+      "A trial in 16 hospitals in India with about 3,500 people with heart failure compared a yoga programme (20 supervised sessions over three months, plus home practice and education) with enhanced usual care. " +
+      "People in the yoga group gained quality of life and walked about 25 metres further on average in the 6-minute walk test, although they did not have fewer deaths, hospital admissions or strokes. " +
+      "The results are preliminary, presented at the American Heart Association meeting and not yet published in a journal; the yoga group also had many more contact sessions than the control group.",
+    fuente: "AHA Scientific Sessions 2026 (American Heart Association Newsroom)",
+    url: "https://newsroom.heart.org/news/yoga-based-cardiac-rehab-improved-quality-of-life-in-people-living-with-heart-failure",
+    pregunta: "¿Qué mejoró con el programa de yoga en personas con insuficiencia cardiaca?",
+    pregunta_en: "What improved with the yoga programme in people with heart failure?",
+    opciones: ["Redujo a la mitad las muertes", "Curó la insuficiencia cardiaca", "Eliminó la necesidad de medicación", "La calidad de vida y la distancia caminada"],
+    opciones_en: ["It halved the number of deaths", "It cured heart failure", "It removed the need for medication", "Quality of life and walking distance"],
+    correcta: 3,
+    explicacion: "El yoga mejoró la calidad de vida y la distancia caminada en 6 minutos, pero no redujo muertes, ingresos ni ictus. Son datos preliminares de un congreso, sin publicar aún en una revista.",
+    explicacion_en: "Yoga improved quality of life and 6-minute walking distance, but did not reduce deaths, hospital admissions or strokes. These are preliminary conference data, not yet published in a journal."
+  },
+  {
     fecha: "2026-11-10",
     area: "Salud de la mujer",
     area_en: "Women's health",
