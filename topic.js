@@ -9,6 +9,30 @@
    ===================================================================== */
 window.TOPIC_DIA = [
   {
+    fecha: "2026-11-12",
+    area: "Metabólica y obesidad",
+    area_en: "Metabolism and obesity",
+    titulo: "Levantar pesas mientras tomas fármacos para adelgazar protege tu músculo y tu fuerza",
+    titulo_en: "Lifting weights while on weight-loss drugs protects your muscle and strength",
+    resumen:
+      "Un ensayo de la Universidad de Australia Occidental siguió durante 40 semanas a 120 personas de 50 a 70 años con obesidad que tomaban tirzepatida, un fármaco para adelgazar. " +
+      "La mitad hizo tres sesiones semanales de ejercicio de fuerza: todos perdieron unos 22 kilos, pero quienes entrenaron perdieron un 25 % menos de masa magra y ganaron un 10 % de fuerza, mientras que los demás perdieron un 10 %. " +
+      "No incluyó a personas con diabetes tipo 2 y la farmacéutica donó el medicamento, aunque no participó en el diseño ni en el análisis.",
+    resumen_en:
+      "A University of Western Australia trial followed 120 people aged 50 to 70 with obesity who were taking tirzepatide, a weight-loss drug, for 40 weeks. " +
+      "Half did three resistance training sessions a week: everyone lost about 22 kilos, but those who trained lost 25% less lean mass and gained 10% in strength, while the others lost 10%. " +
+      "People with type 2 diabetes were not included, and the manufacturer donated the drug, although it was not involved in the design or analysis.",
+    fuente: "Nature Medicine (T-REx, University of Western Australia)",
+    url: "https://www.uwa.edu.au/news/article/2026/november/resistance-training-key-to-maintaining-muscle-function-during-glp1-weight-loss",
+    pregunta: "¿Qué cambió en quienes hicieron ejercicio de fuerza mientras tomaban tirzepatida?",
+    pregunta_en: "What changed in people who did resistance training while taking tirzepatide?",
+    opciones: ["Ganaron fuerza y perdieron menos músculo", "Perdieron el doble de peso", "Dejaron de necesitar el fármaco", "No hubo ninguna diferencia"],
+    opciones_en: ["They gained strength and lost less muscle", "They lost twice as much weight", "They no longer needed the drug", "There was no difference at all"],
+    correcta: 0,
+    explicacion: "Ambos grupos perdieron un peso parecido, pero el grupo que entrenó fuerza perdió un 25 % menos de masa magra y ganó un 10 % de fuerza. Solo se estudiaron personas de 50 a 70 años sin diabetes tipo 2.",
+    explicacion_en: "Both groups lost similar weight, but the strength-training group lost 25% less lean mass and gained 10% in strength. Only people aged 50 to 70 without type 2 diabetes were studied."
+  },
+  {
     fecha: "2026-11-11",
     area: "Rehabilitación cardiaca",
     area_en: "Cardiac rehabilitation",
