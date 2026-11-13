@@ -9,6 +9,30 @@
    ===================================================================== */
 window.TOPIC_DIA = [
   {
+    fecha: "2026-11-13",
+    area: "Rehabilitación cardiaca",
+    area_en: "Cardiac rehabilitation",
+    titulo: "Empezar a moverse en el hospital tras una insuficiencia cardiaca mejora lo que caminas",
+    titulo_en: "Starting to exercise in hospital after heart failure improves how far you can walk",
+    resumen:
+      "Un metaanálisis de 12 ensayos clínicos publicado en Scientific Reports reunió estudios en los que personas ingresadas por insuficiencia cardiaca aguda empezaron ejercicio supervisado ya durante la hospitalización. " +
+      "Quienes lo hicieron caminaron de media unos 54 metros más en la prueba de 6 minutos que quienes recibieron la atención habitual, y su calidad de vida también tendió a mejorar. " +
+      "Los autores califican la certeza de la evidencia como baja, y no hay datos concluyentes sobre si reduce los reingresos o la mortalidad.",
+    resumen_en:
+      "A meta-analysis of 12 clinical trials published in Scientific Reports pooled studies in which people admitted for acute heart failure started supervised exercise while still in hospital. " +
+      "Those who did walked on average about 54 metres more in the 6-minute walk test than those receiving usual care, and their quality of life also tended to improve. " +
+      "The authors rate the certainty of the evidence as low, and the data on readmissions or mortality are inconclusive.",
+    fuente: "Scientific Reports (Zhang et al., 2026)",
+    url: "https://www.nature.com/articles/s41598-026-78168-z",
+    pregunta: "¿Qué mejoró en quienes empezaron ejercicio durante el ingreso por insuficiencia cardiaca?",
+    pregunta_en: "What improved in people who started exercise during their heart failure admission?",
+    opciones: ["Se redujo claramente la mortalidad", "Dejaron de necesitar medicación", "Caminaron más metros en 6 minutos", "Ya no volvieron al hospital"],
+    opciones_en: ["Mortality clearly fell", "They no longer needed medication", "They walked more metres in 6 minutes", "They never returned to hospital"],
+    correcta: 2,
+    explicacion: "La mejora clara fue en la prueba de marcha de 6 minutos: unos 54 metros más de media. Sobre reingresos y mortalidad los datos no son concluyentes, y la certeza global es baja.",
+    explicacion_en: "The clear improvement was in the 6-minute walk test: about 54 metres more on average. Data on readmissions and mortality are inconclusive, and overall certainty is low."
+  },
+  {
     fecha: "2026-11-12",
     area: "Metabólica y obesidad",
     area_en: "Metabolism and obesity",
