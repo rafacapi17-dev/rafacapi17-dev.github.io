@@ -9,6 +9,30 @@
    ===================================================================== */
 window.TOPIC_DIA = [
   {
+    fecha: "2026-11-14",
+    area: "Deporte y lesiones",
+    area_en: "Sports and injuries",
+    titulo: "Hacer ejercicio tras operarte del ligamento cruzado mejora la rodilla y no la desgasta",
+    titulo_en: "Exercising after ACL surgery improves the knee without wearing it out",
+    resumen:
+      "Un ensayo clínico aleatorizado australiano publicado en Annals of Internal Medicine incluyó a 184 adultos de 18 a 40 años que seguían con molestias en la rodilla entre uno y tres años después de operarse del ligamento cruzado anterior. " +
+      "Quienes hicieron un programa de ejercicio de 4 meses supervisado por fisioterapeutas, junto con educación, ganaron fuerza y refirieron menos dolor y mejor calidad de vida que quienes solo recibieron una intervención educativa mínima. " +
+      "No hubo señales de que el ejercicio dañara el cartílago, aunque el estudio todavía no permite saber si previene la artrosis a largo plazo.",
+    resumen_en:
+      "An Australian randomised clinical trial published in Annals of Internal Medicine included 184 adults aged 18 to 40 who still had knee symptoms one to three years after anterior cruciate ligament reconstruction. " +
+      "Those who completed a 4-month physiotherapist-supervised exercise programme with education gained strength and reported less pain and better quality of life than those who received only a minimal educational intervention. " +
+      "There was no sign that the exercise damaged knee cartilage, although the trial cannot yet tell whether it prevents osteoarthritis in the long term.",
+    fuente: "Annals of Internal Medicine (Culvenor et al., La Trobe University, 2026)",
+    url: "https://www.sciencedaily.com/releases/2026/11/261112025538.htm",
+    pregunta: "¿Qué observaron en quienes hicieron el programa de ejercicio tras la operación de rodilla?",
+    pregunta_en: "What was seen in people who did the exercise programme after knee surgery?",
+    opciones: ["El cartílago se desgastó más", "Tuvieron que volver a operarse", "No mejoraron en nada", "Ganaron fuerza y tenían menos dolor, sin dañar el cartílago"],
+    opciones_en: ["Their cartilage wore down faster", "They needed surgery again", "They did not improve at all", "They gained strength and had less pain, without cartilage damage"],
+    correcta: 3,
+    explicacion: "El programa supervisado mejoró fuerza, dolor y calidad de vida sin indicios de daño en el cartílago. Lo que aún no se sabe es si evita la artrosis a largo plazo.",
+    explicacion_en: "The supervised programme improved strength, pain and quality of life with no sign of cartilage damage. Whether it prevents osteoarthritis in the long term is still unknown."
+  },
+  {
     fecha: "2026-11-13",
     area: "Rehabilitación cardiaca",
     area_en: "Cardiac rehabilitation",
