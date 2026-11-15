@@ -9,6 +9,24 @@
    ===================================================================== */
 window.TOPIC_DIA = [
   {
+    fecha: "2026-11-15",
+    area: "Salud de la mujer",
+    area_en: "Women's health",
+    titulo: "Una app con entrenador personal reduce la diabetes del embarazo en mujeres de riesgo",
+    titulo_en: "An app with a personal health coach cuts pregnancy diabetes in at-risk women",
+    resumen: "Un ensayo clínico aleatorizado en Irlanda, Reino Unido, España y Australia, publicado en The Lancet Digital Health, incluyó a 865 embarazadas con mayor riesgo de diabetes gestacional. La mitad recibió, además de la atención habitual, asesoramiento personalizado por una app y sesiones con un coach sobre alimentación, actividad física y bienestar desde el embarazo hasta un año después del parto. Menos mujeres del grupo de la app desarrollaron diabetes gestacional, aunque al año del parto su peso medio no fue distinto al del otro grupo; pesarse a menudo se asoció a menos peso, pero eso es solo una asociación.",
+    resumen_en: "A randomised clinical trial in Ireland, the UK, Spain and Australia, published in The Lancet Digital Health, enrolled 865 pregnant women at higher risk of gestational diabetes. Half received, on top of usual care, personalised app-based coaching and sessions with a health coach on diet, physical activity and wellbeing from pregnancy until one year after birth. Fewer women in the app group developed gestational diabetes, although one year after birth their average weight was no different from the other group; frequent self-weighing was linked to lower weight, but that is only an association.",
+    fuente: "The Lancet Digital Health (ensayo Bump2Baby and Me, O'Reilly et al., University College Dublin, 2026)",
+    url: "https://www.ucd.ie/research/news/2026/bump2babyandmeappandcoachingsignificantlyreducesdiabetesriskinpregnantwomen/",
+    pregunta: "¿Qué consiguió el programa de la app con coach en las embarazadas de riesgo?",
+    pregunta_en: "What did the app-and-coach programme achieve in at-risk pregnant women?",
+    opciones: ["Que adelgazaran mucho más al año del parto", "Que menos mujeres desarrollaran diabetes gestacional", "Que no necesitaran ir a sus revisiones", "Que tuvieran más complicaciones"],
+    opciones_en: ["Much greater weight loss one year after birth", "Fewer women developed gestational diabetes", "No need to attend their check-ups", "More complications"],
+    correcta: 1,
+    explicacion: "Hubo menos casos de diabetes gestacional en el grupo de la app, pero el peso al año del parto fue similar en ambos grupos. Las cifras exactas se conocerán en el artículo completo.",
+    explicacion_en: "There were fewer cases of gestational diabetes in the app group, but weight one year after birth was similar in both groups. Exact figures are in the full paper."
+  },
+  {
     fecha: "2026-11-14",
     area: "Deporte y lesiones",
     area_en: "Sports and injuries",
