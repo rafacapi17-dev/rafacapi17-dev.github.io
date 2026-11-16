@@ -9,6 +9,24 @@
    ===================================================================== */
 window.TOPIC_DIA = [
   {
+    fecha: "2026-11-16",
+    area: "Ejercicio y prevención",
+    area_en: "Exercise and prevention",
+    titulo: "Fútbol y balonmano activan más la formación de hueso que caminar o ir al gimnasio",
+    titulo_en: "Football and handball boost bone building more than walking or gym workouts",
+    resumen: "Un metaanálisis de la Universidad Semmelweis, publicado en Sports Medicine - Open, reunió 24 estudios con 1.238 adultos sanos y analizó marcadores en sangre de formación de hueso. Los deportes intensos con sprints, saltos y cambios de dirección, como el fútbol o el balonmano recreativos, elevaron esos marcadores hasta un 45 %, mientras que caminar, el aeróbic con step o la musculación habitual tuvieron efectos pequeños o nulos. Ojo: se midieron marcadores en sangre, no la densidad ósea ni las fracturas, así que aún no prueba que proteja frente a la osteoporosis.",
+    resumen_en: "A meta-analysis from Semmelweis University, published in Sports Medicine - Open, pooled 24 studies with 1,238 healthy adults and looked at blood markers of bone formation. Intense sports with sprints, jumps and changes of direction, such as recreational football or handball, raised those markers by up to 45%, while walking, step aerobics or standard gym weight training had small or no effects. Note: the study measured blood markers, not bone density or fractures, so it does not yet prove protection against osteoporosis.",
+    fuente: "Sports Medicine - Open (Barna et al., Semmelweis University, 2026)",
+    url: "https://www.sciencedaily.com/releases/2026/11/261110042601.htm",
+    pregunta: "Según este metaanálisis, ¿qué tipo de ejercicio activó más los marcadores de formación de hueso?",
+    pregunta_en: "According to this meta-analysis, which type of exercise boosted bone-formation markers the most?",
+    opciones: ["Caminar a paso tranquilo", "La musculación habitual en el gimnasio", "Deportes intensos con sprints y cambios de dirección", "Los estiramientos"],
+    opciones_en: ["Walking at an easy pace", "Standard gym weight training", "Intense sports with sprints and changes of direction", "Stretching"],
+    correcta: 2,
+    explicacion: "El fútbol y el balonmano recreativos dieron las mayores subidas (hasta un 45 %). Pero se midieron marcadores en sangre, no densidad ósea ni fracturas.",
+    explicacion_en: "Recreational football and handball produced the largest rises (up to 45%). But the study measured blood markers, not bone density or fractures."
+  },
+  {
     fecha: "2026-11-15",
     area: "Salud de la mujer",
     area_en: "Women's health",
