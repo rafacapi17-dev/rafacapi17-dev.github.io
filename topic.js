@@ -9,6 +9,24 @@
    ===================================================================== */
 window.TOPIC_DIA = [
   {
+    fecha: "2026-11-17",
+    area: "Neurorrehabilitación",
+    area_en: "Neurorehabilitation",
+    titulo: "Moverse más de 8 horas a la semana se asocia a un Parkinson que avanza más despacio",
+    titulo_en: "Over 8 hours of activity a week linked to slower Parkinson's progression",
+    resumen: "Un estudio publicado en Neurology (Universidad de Cincinnati) siguió durante hasta siete años a 294 personas con Parkinson leve o moderado. Quienes hacían más de 8 horas semanales de actividad física (en casa, en el trabajo o en sus aficiones) apenas perdieron memoria y capacidad de pensar con los años, y sus síntomas de movimiento empeoraron menos que en quienes se movían 4 horas o menos. Ojo: es un estudio observacional con actividad autodeclarada, así que muestra una asociación, no prueba que el ejercicio frene la enfermedad.",
+    resumen_en: "A study published in Neurology (University of Cincinnati) followed 294 people with mild to moderate Parkinson's for up to seven years. Those who did more than 8 hours of physical activity a week (at home, at work or in hobbies) showed almost no decline in memory and thinking over the years, and their movement symptoms worsened less than in those who moved 4 hours or less. Note: it is an observational study with self-reported activity, so it shows an association and does not prove that exercise slows the disease.",
+    fuente: "Neurology (Ryu et al., University of Cincinnati, 2026)",
+    url: "https://www.aan.com/PressRoom/Home/PressRelease/5370",
+    pregunta: "En este estudio, ¿qué grupo mostró un deterioro más lento de la memoria y del movimiento?",
+    pregunta_en: "In this study, which group showed slower decline in memory and movement?",
+    opciones: ["Quienes hacían más de 8 horas semanales de actividad física", "Quienes hacían hasta 4 horas semanales", "Quienes solo tomaban medicación, sin moverse", "No hubo diferencias entre grupos"],
+    opciones_en: ["Those doing over 8 hours of physical activity a week", "Those doing up to 4 hours a week", "Those who only took medication without moving", "There were no differences between groups"],
+    correcta: 0,
+    explicacion: "El grupo más activo (más de 8 h/semana) casi no perdió puntuación cognitiva y empeoró menos en movimiento. Es observacional: indica asociación, no causa.",
+    explicacion_en: "The most active group (over 8 h/week) barely lost cognitive score and worsened less in movement. It is observational: it shows association, not cause."
+  },
+  {
     fecha: "2026-11-16",
     area: "Ejercicio y prevención",
     area_en: "Exercise and prevention",
