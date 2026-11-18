@@ -9,6 +9,24 @@
    ===================================================================== */
 window.TOPIC_DIA = [
   {
+    fecha: "2026-11-18",
+    area: "Pediatría",
+    area_en: "Paediatrics",
+    titulo: "Ejercicio aeróbico suave en casa ayuda a adolescentes a recuperarse antes de una conmoción",
+    titulo_en: "Gentle aerobic exercise at home helps teens recover sooner from a concussion",
+    resumen: "Un ensayo publicado en JAMA Pediatrics (Seattle Children's y otros centros de EE. UU.) incluyó a 210 chicos y chicas de 11 a 18 años con síntomas de conmoción que duraban semanas. Quienes hicieron ejercicio aeróbico suave en casa (caminar rápido o bici estática con pulsera de actividad y un entrenador por videollamada durante 6 semanas) mejoraron sus síntomas y su calidad de vida más rápido que quienes solo hicieron estiramientos. La ventaja se notó a los 3 meses pero desapareció a los 6, cuando ambos grupos estaban igual de bien.",
+    resumen_en: "A trial published in JAMA Pediatrics (Seattle Children's and other US centres) included 210 young people aged 11 to 18 with concussion symptoms lasting weeks. Those who did gentle aerobic exercise at home (brisk walking or a stationary bike, with an activity tracker and a video-call coach for 6 weeks) improved their symptoms and quality of life faster than those who only stretched. The advantage was seen at 3 months but disappeared by 6 months, when both groups were doing equally well.",
+    fuente: "JAMA Pediatrics (Chrisman et al., ensayo MSTEP, Seattle Children's, 2026)",
+    url: "https://jamanetwork.com/journals/jamapediatrics/article-abstract/2855372",
+    pregunta: "¿Qué encontró el ensayo en adolescentes con conmoción que hicieron ejercicio aeróbico suave?",
+    pregunta_en: "What did the trial find in teens with concussion who did gentle aerobic exercise?",
+    opciones: ["Empeoraron sus síntomas por esforzarse demasiado pronto","No hubo ninguna diferencia en ningún momento","Mejoraron más rápido que con estiramientos, sobre todo a los 3 meses","Necesitaron el doble de tiempo para volver al colegio"],
+    opciones_en: ["Their symptoms got worse from exerting themselves too early","There was no difference at any time","They improved faster than with stretching, especially at 3 months","They needed twice as long to return to school"],
+    correcta: 2,
+    explicacion: "A los 3 meses, el grupo de ejercicio aeróbico tenía menos síntomas y mejor calidad de vida que el de estiramientos, sin efectos adversos. A los 6 meses ambos grupos se igualaron.",
+    explicacion_en: "At 3 months, the aerobic exercise group had fewer symptoms and better quality of life than the stretching group, with no adverse events. By 6 months both groups had caught up."
+  },
+  {
     fecha: "2026-11-17",
     area: "Neurorrehabilitación",
     area_en: "Neurorehabilitation",
