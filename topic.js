@@ -9,6 +9,24 @@
    ===================================================================== */
 window.TOPIC_DIA = [
   {
+    fecha: "2026-11-19",
+    area: "Salud mental",
+    area_en: "Mental health",
+    titulo: "Hacer ejercicio antes de la terapia ayuda a la mente a sacarle más partido en la depresión",
+    titulo_en: "Exercising before therapy helps the mind get more out of it in depression",
+    resumen: "Un ensayo internacional con 120 adultos con depresión leve o moderada (Universidad de São Paulo y Universidad de Wisconsin-Madison, con la parte clínica en Berlín) probó 12 semanas de ejercicio y después 12 semanas de terapia cognitivo-conductual. Quienes entrenaron a mayor intensidad ganaron más forma física y más velocidad mental y atención, y las mejoras de memoria se consolidaron sobre todo durante la terapia posterior. Es un estudio pequeño en el que solo 74 personas completaron todas las fases, así que los resultados deben confirmarse.",
+    resumen_en: "An international trial with 120 adults with mild to moderate depression (University of São Paulo and University of Wisconsin-Madison, with the clinical part in Berlin) tested 12 weeks of exercise followed by 12 weeks of cognitive behavioural therapy. Those who trained at higher intensity gained the most fitness, mental speed and attention, and memory gains were consolidated mainly during the therapy that followed. It is a small study in which only 74 people completed every phase, so the results need confirming.",
+    fuente: "Mental Health and Physical Activity (Werneck et al., USP / UW-Madison, 2026; nota de prensa FAPESP)",
+    url: "https://www.eurekalert.org/news-releases/1152330",
+    pregunta: "Según el estudio, ¿cuándo se consolidaron sobre todo las mejoras de memoria?",
+    pregunta_en: "According to the study, when were memory gains mainly consolidated?",
+    opciones: ["En la primera semana de ejercicio","Solo en el grupo que no hizo ejercicio","Al dejar la medicación antidepresiva","Durante la terapia que siguió al ejercicio"],
+    opciones_en: ["In the first week of exercise","Only in the group that did not exercise","When stopping antidepressant medication","During the therapy that followed the exercise"],
+    correcta: 3,
+    explicacion: "Las 12 semanas de ejercicio mejoraron la forma física y prepararon el terreno, pero las ganancias de memoria se afianzaron en la fase de terapia cognitivo-conductual. Es un ensayo pequeño y con muchos abandonos, así que hace falta confirmarlo.",
+    explicacion_en: "The 12 weeks of exercise improved fitness and laid the groundwork, but memory gains took hold during the cognitive behavioural therapy phase. It is a small trial with many dropouts, so it needs confirming."
+  },
+  {
     fecha: "2026-11-18",
     area: "Pediatría",
     area_en: "Paediatrics",
