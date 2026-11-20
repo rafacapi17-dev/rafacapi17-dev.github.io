@@ -9,6 +9,24 @@
    ===================================================================== */
 window.TOPIC_DIA = [
   {
+    fecha: "2026-11-20",
+    area: "Salud digital",
+    area_en: "Digital health",
+    titulo: "Rehabilitar la rodilla operada con una app en casa funciona casi igual que ir al hospital",
+    titulo_en: "Rehabbing a replaced knee with a home app works almost as well as going to hospital",
+    resumen: "Un ensayo piloto del Singapore General Hospital comparó, en 30 personas operadas de prótesis de rodilla, la rehabilitación en el hospital con un programa en el móvil que guiaba los ejercicios y avisaba al fisioterapeuta. A las 12 semanas, la velocidad al caminar fue prácticamente igual en ambos grupos y la adherencia fue parecida (alrededor del 80 %), aunque quienes fueron al hospital se mostraron algo más satisfechos. Es un estudio pequeño, con pacientes que se manejaban bien con la tecnología, así que hace falta confirmarlo en ensayos más grandes.",
+    resumen_en: "A pilot trial at Singapore General Hospital compared, in 30 people after knee replacement, hospital-based rehabilitation with a phone programme that guided the exercises and alerted the physiotherapist. At 12 weeks, walking speed was practically the same in both groups and adherence was similar (around 80%), although those who went to hospital were somewhat more satisfied. It is a small study in fairly tech-savvy patients, so it needs confirming in larger trials.",
+    fuente: "Annals, Academy of Medicine, Singapore (Chew, Pua et al., Singapore General Hospital, 2026)",
+    url: "https://annals.edu.sg/automated-telemonitored-rehab/",
+    pregunta: "En el ensayo, ¿en qué fueron mejor valorados los pacientes que hicieron la rehabilitación en el hospital?",
+    pregunta_en: "In the trial, in what did patients who did rehabilitation in hospital score better?",
+    opciones: ["En velocidad al caminar","En satisfacción con el programa","En número de complicaciones graves","En adherencia a los ejercicios"],
+    opciones_en: ["Walking speed","Satisfaction with the programme","Number of serious complications","Adherence to the exercises"],
+    correcta: 1,
+    explicacion: "La velocidad al caminar y la adherencia fueron casi iguales, pero la satisfacción fue algo mayor en el grupo del hospital. Al ser un ensayo piloto con 30 personas, las conclusiones son preliminares.",
+    explicacion_en: "Walking speed and adherence were almost the same, but satisfaction was somewhat higher in the hospital group. As a pilot trial with 30 people, the conclusions are preliminary."
+  },
+  {
     fecha: "2026-11-19",
     area: "Salud mental",
     area_en: "Mental health",
