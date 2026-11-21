@@ -9,6 +9,24 @@
    ===================================================================== */
 window.TOPIC_DIA = [
   {
+    fecha: "2026-11-21",
+    area: "Oncología",
+    area_en: "Oncology",
+    titulo: "Yoga y Pilates, los ejercicios que más alivian el cansancio que deja el cáncer",
+    titulo_en: "Yoga and Pilates are the exercises that best ease cancer-related tiredness",
+    resumen: "Un gran análisis de 166 ensayos con más de 14.000 pacientes comparó distintos tipos y cantidades de ejercicio frente al cansancio extremo que provoca el cáncer. Durante el tratamiento destacó el yoga, y en quienes ya lo habían terminado, el Pilates; caminar, el ejercicio aeróbico y combinar aeróbico con fuerza también ayudaron. Los autores advierten que los resultados son exploratorios y que la calidad de la evidencia va de muy baja a moderada.",
+    resumen_en: "A large analysis of 166 trials with over 14,000 patients compared different types and amounts of exercise against the extreme tiredness caused by cancer. During treatment yoga stood out, and in people who had finished treatment, Pilates; walking, aerobic exercise and combining aerobic with strength work also helped. The authors warn the results are exploratory and the quality of evidence ranges from very low to moderate.",
+    fuente: "Supportive Care in Cancer (Huang et al., metaanálisis en red dosis-respuesta, 2026)",
+    url: "https://link.springer.com/article/10.1007/s00520-026-11515-y",
+    pregunta: "Según el análisis, ¿qué ejercicio tuvo el mayor efecto sobre el cansancio en quienes ya habían terminado el tratamiento del cáncer?",
+    pregunta_en: "According to the analysis, which exercise had the largest effect on tiredness in people who had finished cancer treatment?",
+    opciones: ["Natación","Caminar","Levantar pesas","Pilates"],
+    opciones_en: ["Swimming","Walking","Lifting weights","Pilates"],
+    correcta: 3,
+    explicacion: "En supervivientes que ya habían acabado el tratamiento, el mayor efecto fue para el Pilates (y el yoga durante el tratamiento). Son resultados exploratorios con evidencia de certeza muy baja a moderada.",
+    explicacion_en: "In survivors who had finished treatment, the largest effect was for Pilates (and yoga during treatment). These are exploratory results with very low to moderate certainty of evidence."
+  },
+  {
     fecha: "2026-11-20",
     area: "Salud digital",
     area_en: "Digital health",
