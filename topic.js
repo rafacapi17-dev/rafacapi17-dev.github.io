@@ -9,6 +9,24 @@
    ===================================================================== */
 window.TOPIC_DIA = [
   {
+    fecha: "2026-11-22",
+    area: "Geriatría y caídas",
+    area_en: "Geriatrics and falls",
+    titulo: "Un aviso en la historia clínica que receta ejercicio reduce las caídas de los mayores",
+    titulo_en: "An alert in the medical record that prescribes exercise cuts falls in older adults",
+    resumen: "En 22 centros de salud de Estados Unidos, casi 12.000 personas mayores de 65 años con riesgo de caerse participaron en un ensayo. En la mitad de los centros, el ordenador del médico sugería un programa de ejercicio a medida, la derivación al fisioterapeuta y materiales para el paciente; en esos centros hubo alrededor de un 9 % menos de caídas y un 6 % menos de lesiones por caídas. El efecto fue modesto, las caídas se contaron a partir de los registros médicos y solo uno de cada cinco pacientes recibió la receta de ejercicio.",
+    resumen_en: "In 22 primary care practices in the United States, almost 12,000 people over 65 at risk of falling took part in a trial. In half of the practices, the doctor's computer suggested a tailored exercise programme, referral to a physiotherapist and patient materials; those practices had about 9% fewer falls and 6% fewer fall-related injuries. The effect was modest, falls were counted from medical records, and only about one in five patients actually received the exercise prescription.",
+    fuente: "JAMA Network Open (Latham et al., ensayo eSTEPS, Mass General Brigham / UTMB, 2026)",
+    url: "https://doi.org/10.1001/jamanetworkopen.2026.39240",
+    pregunta: "¿Qué hacía la herramienta probada en el ensayo eSTEPS?",
+    pregunta_en: "What did the tool tested in the eSTEPS trial do?",
+    opciones: ["Ayudaba al médico a recetar ejercicio a medida desde la historia clínica","Avisaba a la familia cuando el mayor se caía en casa","Medía la fuerza con un reloj inteligente","Recetaba vitamina D a todos los mayores"],
+    opciones_en: ["Helped the doctor prescribe tailored exercise from the medical record","Alerted the family when the older person fell at home","Measured strength with a smartwatch","Prescribed vitamin D to all older adults"],
+    correcta: 0,
+    explicacion: "La herramienta, integrada en la historia clínica electrónica, sugería ejercicio a medida, derivación a fisioterapia y materiales educativos. Las caídas bajaron alrededor de un 9 %, un efecto modesto.",
+    explicacion_en: "The tool, built into the electronic health record, suggested tailored exercise, physiotherapy referral and educational materials. Falls dropped by about 9%, a modest effect."
+  },
+  {
     fecha: "2026-11-21",
     area: "Oncología",
     area_en: "Oncology",
