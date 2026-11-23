@@ -9,6 +9,24 @@
    ===================================================================== */
 window.TOPIC_DIA = [
   {
+    fecha: "2026-11-23",
+    area: "Metabólica y obesidad",
+    area_en: "Metabolic health and obesity",
+    titulo: "Entrenar la respiración mientras pedaleas da un extra a personas con obesidad",
+    titulo_en: "Training your breathing while you pedal gives people with obesity an extra boost",
+    resumen: "En un ensayo con 51 adultos con obesidad, dos programas de 10 semanas (tres días por semana) mejoraron por igual la distancia que caminaban en 6 minutos: unos 57-64 metros más que el grupo que no hizo ejercicio. Uno de los grupos usaba además un pequeño aparato que pone resistencia al inspirar mientras hacía el ejercicio aeróbico, y ese grupo ganó además fuerza en los músculos de la respiración y una mejor respuesta ventilatoria. Es un estudio pequeño de un solo centro, así que hacen falta ensayos más grandes.",
+    resumen_en: "In a trial with 51 adults with obesity, two 10-week programmes (three days a week) improved the distance walked in 6 minutes equally: about 57-64 metres more than the group that did no exercise. One group also used a small device that adds resistance when breathing in during aerobic exercise, and that group additionally gained breathing-muscle strength and a better ventilatory response. It is a small single-centre study, so larger trials are needed.",
+    fuente: "Archives of Physical Medicine and Rehabilitation (Yiğit et al., ensayo aleatorizado, 2026)",
+    url: "https://consensus.app/papers/details/w:d8115c12-f219-4e2e-b3c1-c2835e06c4a3/",
+    pregunta: "¿Qué beneficio extra tuvo el grupo que entrenó la respiración durante el ejercicio?",
+    pregunta_en: "What extra benefit did the group that trained breathing during exercise get?",
+    opciones: ["Perdió el doble de peso","Caminó el doble de distancia","Ganó fuerza en los músculos de la respiración","Dejó de necesitar medicación"],
+    opciones_en: ["It lost twice as much weight","It walked twice as far","It gained strength in the breathing muscles","It no longer needed medication"],
+    correcta: 2,
+    explicacion: "Ambos programas mejoraron por igual la distancia caminada, pero solo el que añadía entrenamiento inspiratorio mejoró además la fuerza de los músculos respiratorios y la ventilación. Es un ensayo pequeño (51 personas).",
+    explicacion_en: "Both programmes improved walking distance equally, but only the one adding inspiratory training also improved breathing-muscle strength and ventilation. It is a small trial (51 people)."
+  },
+  {
     fecha: "2026-11-22",
     area: "Geriatría y caídas",
     area_en: "Geriatrics and falls",
