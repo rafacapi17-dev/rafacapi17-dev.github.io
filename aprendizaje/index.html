@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aprendizaje · RafaelJL</title>
+  <meta name="description" content="Cursos de formación en fisioterapia y ciencias de la salud, con teoría aplicada, casos clínicos, autoevaluación y referencias.">
+  <link rel="canonical" href="https://rafacapi17-dev.github.io/aprendizaje/">
+  <meta name="theme-color" content="#faf9f6">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RafaelJL">
+  <meta property="og:title" content="Aprendizaje · RafaelJL">
+  <meta property="og:description" content="Cursos de formación en fisioterapia y ciencias de la salud, con casos clínicos, autoevaluación y referencias.">
+  <meta property="og:image" content="https://rafacapi17-dev.github.io/img/portada-compartir.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="../img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    try {
+      var t = localStorage.getItem("tema");
+      if (t !== "claro" && t !== "oscuro") t = matchMedia("(prefers-color-scheme: dark)").matches ? "oscuro" : "claro";
+      document.documentElement.dataset.tema = t;
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="aprendizaje.css?v=202611241800">
+</head>
+<body>
+  <header class="barra">
+    <div class="barra-in">
+      <a class="marca" href="../" aria-label="RafaelJL, web principal">
+        <img class="logo logo-claro" src="../img/logo-gallo.png" alt="" width="44" height="44">
+        <img class="logo logo-oscuro" src="../img/logo-gallo-oscuro.png" alt="" width="44" height="44">
+        <span class="marca-txt">Rafael<span>JL</span></span>
+      </a>
+      <nav>
+        <a href="./" class="a-seccion">Aprendizaje</a>
+        <a href="../#publicaciones" class="a-extra">Publicaciones</a>
+        <a href="../" class="a-madre">Web principal <span aria-hidden="true">↗</span></a>
+        <button type="button" class="ctrl" id="btnTema" aria-label="Cambiar modo claro u oscuro">
+          <svg class="ico-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+          <svg class="ico-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="apr">
+    <header class="apr-cab">
+      <p class="sobretitulo">Formación</p>
+      <h1>Aprendizaje</h1>
+      <p class="apr-intro">Cursos para profesionales de la salud: teoría aplicada solo en la medida en que cambia lo que haces en la consulta, con casos clínicos, autoevaluación y referencias para comprobar cada afirmación.</p>
+    </header>
+
+    <div class="apr-lista">
+      <a class="curso-card" href="fisioterapia-respiratoria/">
+        <div>
+          <p class="sobretitulo">Curso · Fisioterapia</p>
+          <h2>Fisioterapia respiratoria para fisioterapeutas</h2>
+          <p>De la anatomía funcional y la valoración a las técnicas de drenaje, los dispositivos, el entrenamiento muscular respiratorio y las poblaciones especiales. Incluye plan de estudio día a día, manual de prácticas y exámenes con casos clínicos.</p>
+          <ul class="curso-meta">
+            <li>Nivel profesional</li>
+            <li>Evaluación interactiva</li>
+            <li>Referencias en PubMed</li>
+            <li>Español</li>
+          </ul>
+        </div>
+        <div class="curso-lado">
+          <dl class="curso-cifras">
+            <div><dt>Módulos</dt><dd>16</dd></div>
+            <div><dt>Semanas</dt><dd>17</dd></div>
+            <div><dt>Preguntas</dt><dd>104</dd></div>
+          </dl>
+          <span class="curso-btn">Entrar al curso <span aria-hidden="true">→</span></span>
+        </div>
+      </a>
+    </div>
+
+    <p class="apr-proximo">Aquí irán sumándose nuevos cursos y materiales de estudio.</p>
+    <p class="apr-aviso">Material formativo para profesionales sanitarios. No sustituye el criterio clínico ni las guías de tu centro. Para divulgación general, mira los <a href="../#temas">temas de la web</a>; para centros educativos, el <a href="../aula/">Aula</a>.</p>
+  </main>
+
+  <footer class="pie"><p>© <span id="anio"></span> RafaelJL</p></footer>
+  <script>
+    document.getElementById("anio").textContent = new Date().getFullYear();
+    document.getElementById("btnTema").onclick = function () {
+      var r = document.documentElement;
+      r.dataset.tema = r.dataset.tema === "oscuro" ? "claro" : "oscuro";
+      try { localStorage.setItem("tema", r.dataset.tema); } catch (e) {}
+    };
+  </script>
+  <!-- Estadísticas de visitas sin cookies (GoatCounter) -->
+  <script data-goatcounter="https://rafaeljl.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

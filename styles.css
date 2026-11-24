@@ -524,3 +524,16 @@ dialog.lectura .progreso { opacity: 1; }
   .puerta-btn { grid-column: 1 / -1; text-align: center; }
   .puerta-txt strong { font-size: 1.2rem; }
 }
+
+/* Puerta a Aprendizaje (parte seria) */
+.puerta-aprendizaje { display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: center; margin: 1rem 0 4rem; padding: 1.4rem 1.8rem; background: var(--papel); border: 1px solid var(--linea); border-left: 3px solid var(--ambar); color: var(--texto); text-decoration: none; transition: border-color .2s ease, transform .2s ease; }
+.puerta-aprendizaje:hover { border-color: var(--ambar); transform: translateY(-2px); }
+.pa-txt { display: flex; flex-direction: column; gap: .2rem; }
+.pa-txt .sobretitulo { margin: 0 0 .15rem; }
+.pa-txt strong { font: 500 1.35rem/1.25 var(--serif); color: var(--tinta); }
+.pa-btn { font-weight: 600; font-size: .9rem; color: var(--acento); white-space: nowrap; }
+.puerta-aprendizaje:hover .pa-btn span:last-child { display: inline-block; transform: translateX(3px); }
+@media (max-width: 600px) { .puerta-aprendizaje { grid-template-columns: 1fr; padding: 1.2rem; } }
+
+.produccion + .puerta-aprendizaje { margin-top: -2rem; }
+@media (max-width: 600px) { .produccion + .puerta-aprendizaje { margin-top: -2.5rem; } }

@@ -1,0 +1,91 @@
+/* Aprendizaje · estilos compartidos (paleta de la web principal) */
+:root {
+  --fondo: #faf9f6; --papel: #ffffff; --tinta: #1a1c1f; --texto: #3a3d42; --suave: #6e7279; --linea: #dcd9d2;
+  --acento: #98501f; --acento-claro: #f6ebe0; --ambar: #d4874a; --ambar-velo: rgba(212,135,74,.10);
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --sans: "Public Sans", system-ui, -apple-system, sans-serif;
+  color-scheme: light;
+}
+:root[data-tema="oscuro"] {
+  --fondo: #121417; --papel: #1a1d21; --tinta: #eceae5; --texto: #c9c7c1; --suave: #8f949b; --linea: #2e3237;
+  --acento: #e2a774; --acento-claro: #2c2219; --ambar: #d99a62; --ambar-velo: rgba(217,154,98,.08);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fondo); color: var(--texto); font: 400 16px/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; }
+a { color: var(--acento); text-underline-offset: 3px; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--ambar); outline-offset: 3px; }
+[hidden] { display: none !important; }
+
+/* Barra superior (igual que en el Aula) */
+.barra { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--fondo) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--linea); }
+.barra::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: linear-gradient(90deg, transparent, var(--ambar) 30%, var(--ambar) 70%, transparent); opacity: .55; }
+.barra-in { max-width: 1140px; margin: 0 auto; padding: .7rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.marca { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; }
+.logo { width: 44px; height: 44px; }
+.logo-oscuro { display: none; }
+:root[data-tema="oscuro"] .logo-claro { display: none; }
+:root[data-tema="oscuro"] .logo-oscuro { display: block; }
+.marca-txt { font: 600 1.3rem/1 var(--serif); color: var(--tinta); }
+.marca-txt span { color: var(--acento); font-weight: 500; }
+.barra nav { display: flex; align-items: center; gap: 1.4rem; }
+.barra nav a { color: var(--suave); text-decoration: none; font-size: .9rem; font-weight: 500; }
+.barra nav a:hover { color: var(--tinta); }
+.barra nav a.a-seccion { color: var(--acento); font-weight: 600; }
+.barra nav .a-madre { color: var(--acento); font-weight: 600; border: 1px solid color-mix(in srgb, var(--ambar) 55%, var(--linea)); padding: .35rem .7rem; border-radius: 2px; }
+.barra nav .a-madre:hover { border-color: var(--ambar); color: var(--acento); }
+.ctrl { display: inline-grid; place-items: center; width: 2.1rem; height: 2.1rem; background: none; border: 1px solid var(--linea); border-radius: 2px; cursor: pointer; color: var(--tinta); }
+.ctrl:hover { border-color: var(--ambar); }
+.ctrl svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.ctrl .ico-luna { fill: currentColor; stroke: none; }
+.ctrl .ico-sol { display: none; }
+:root[data-tema="oscuro"] .ctrl .ico-luna { display: none; }
+:root[data-tema="oscuro"] .ctrl .ico-sol { display: block; }
+
+/* Pie */
+.pie-curso, .pie { max-width: 900px; margin: 0 auto; padding: 1.5rem 0 3rem; border-top: 1px solid var(--linea); color: var(--suave); font-size: .85rem; }
+.pie-curso p, .pie p { margin: 0; }
+
+/* Portada de Aprendizaje */
+.apr { max-width: 1140px; margin: 0 auto; padding: 3.5rem 1.5rem 2rem; }
+.sobretitulo { margin: 0 0 .9rem; font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--acento); }
+.apr-cab h1 { font: 500 clamp(2.2rem, 5vw, 3.4rem)/1.1 var(--serif); color: var(--tinta); letter-spacing: -.012em; margin: 0; max-width: 20ch; position: relative; padding-bottom: 1rem; }
+.apr-cab h1::after { content: ""; position: absolute; left: 0; bottom: 0; width: 2.5rem; height: 2px; background: var(--ambar); }
+.apr-intro { margin: 1.2rem 0 0; max-width: 60ch; font: 400 1.15rem/1.6 var(--serif); color: var(--suave); }
+.apr-lista { display: grid; gap: 1.5rem; margin: 2.6rem 0 0; }
+.curso-card { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: end; padding: 2rem 2.2rem 1.8rem; background: var(--papel); border: 1px solid var(--linea); color: var(--texto); text-decoration: none; box-shadow: 0 30px 60px -45px rgba(90,50,20,.45); transition: transform .2s ease, border-color .2s ease; }
+.curso-card::before { content: ""; position: absolute; left: -1px; right: -1px; top: -1px; height: 3px; background: linear-gradient(90deg, var(--acento), var(--ambar)); }
+.curso-card:hover { transform: translateY(-2px); border-color: var(--ambar); }
+.curso-card h2 { font: 500 1.9rem/1.15 var(--serif); color: var(--tinta); margin: 0 0 .7rem; }
+.curso-card p { margin: 0; max-width: 60ch; }
+.curso-meta { display: flex; flex-wrap: wrap; gap: .4rem .6rem; margin: 1.1rem 0 0; padding: 0; list-style: none; }
+.curso-meta li { font-size: .78rem; font-weight: 500; padding: .2rem .65rem; border: 1px solid var(--linea); border-radius: 99px; color: var(--suave); }
+.curso-btn { display: inline-flex; align-items: center; gap: .5rem; padding: .7rem 1.1rem; background: var(--acento); color: var(--papel); font-weight: 600; font-size: .92rem; white-space: nowrap; }
+.curso-card:hover .curso-btn { background: var(--tinta); }
+.curso-cifras { display: flex; gap: 1.6rem; margin: 0 0 1.4rem; }
+.curso-cifras div { text-align: left; }
+.curso-cifras dt { font-size: .66rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--suave); }
+.curso-cifras dd { margin: .1rem 0 0; font: 500 2.1rem/1 var(--serif); color: var(--acento); }
+.curso-lado { display: flex; flex-direction: column; align-items: flex-end; }
+.apr-proximo { margin: 1.6rem 0 0; padding: 1.1rem 1.4rem; border: 1px dashed var(--linea); color: var(--suave); font-size: .92rem; }
+.apr-aviso { margin: 2.2rem 0 0; max-width: 70ch; font-size: .85rem; color: var(--suave); }
+
+@media (max-width: 760px) {
+  .curso-card { grid-template-columns: 1fr; padding: 1.5rem 1.3rem; }
+  .curso-lado { align-items: flex-start; }
+}
+@media (max-width: 640px) {
+  .barra-in { padding: .6rem 1rem; }
+  .logo { width: 38px; height: 38px; }
+  .marca-txt { font-size: 1.1rem; }
+  .barra nav { gap: .8rem; }
+  .barra nav .a-extra { display: none; }
+}
+@media (max-width: 400px) { .barra nav .a-madre { display: none; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+
+.pie { max-width: 1140px; padding: 1.5rem 1.5rem 3rem; border-top: 0; }
+.pie p { border-top: 1px solid var(--linea); padding-top: 1.2rem; }
+.pie-curso { width: calc(100% - 32px); }
