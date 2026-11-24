@@ -9,6 +9,24 @@
    ===================================================================== */
 window.TOPIC_DIA = [
   {
+    fecha: "2026-11-24",
+    area: "Enfermería y cuidados",
+    area_en: "Nursing and care",
+    titulo: "Una enfermera que vigila los efectos secundarios ayuda a bajar la tensión más difícil",
+    titulo_en: "A nurse who checks medication side effects helps lower hard-to-treat blood pressure",
+    resumen: "Algunas personas siguen con la tensión alta pese a tomar varios fármacos, a menudo porque las pastillas les sientan mal y dejan de tomarlas bien. En un ensayo con 46 pacientes, quienes tuvieron 6-8 visitas con enfermería centradas en detectar y resolver esos efectos secundarios bajaron su tensión sistólica de 24 horas unos 17 mmHg en 6 meses, frente a unos 4 mmHg con la atención habitual. Es un estudio pequeño y sin cegamiento, así que hacen falta ensayos más grandes.",
+    resumen_en: "Some people keep high blood pressure despite taking several drugs, often because the pills cause side effects and they stop taking them properly. In a trial with 46 patients, those who had 6-8 nurse visits focused on spotting and solving those side effects lowered their 24-hour systolic pressure by about 17 mmHg over 6 months, versus about 4 mmHg with usual care. It is a small, open-label study, so larger trials are needed.",
+    fuente: "Journal of Clinical Hypertension (Ortega Díaz et al., ensayo aleatorizado, 2026)",
+    url: "https://pubmed.ncbi.nlm.nih.gov/43061824",
+    pregunta: "¿En qué se centraban las visitas de enfermería que ayudaron a bajar la tensión?",
+    pregunta_en: "What did the nurse visits that helped lower blood pressure focus on?",
+    opciones: ["En añadir más pastillas","En detectar y resolver los efectos secundarios de la medicación","En seguir una dieta sin nada de sal","En hacer ejercicio en grupo"],
+    opciones_en: ["Adding more pills","Spotting and solving medication side effects","Following a completely salt-free diet","Doing group exercise"],
+    correcta: 1,
+    explicacion: "Las visitas buscaban los efectos secundarios poco reconocidos de los fármacos y los manejaban, lo que se asoció a una bajada mayor de la tensión de 24 horas. Es un ensayo pequeño (46 personas) y abierto.",
+    explicacion_en: "The visits looked for under-recognised drug side effects and managed them, which was linked to a larger drop in 24-hour blood pressure. It is a small (46 people), open-label trial."
+  },
+  {
     fecha: "2026-11-23",
     area: "Metabólica y obesidad",
     area_en: "Metabolic health and obesity",
