@@ -60,7 +60,7 @@ ul,ol{margin:0 0 12px;padding-left:1.3em}
 li{margin-bottom:6px}
 figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px}
 figure .scroll{overflow-x:auto}
-figure img{display:block;margin:0 auto;border-radius:6px;max-height:520px;width:auto;max-width:100%;background:#fff}
+figure img{display:block;margin:0 auto;border-radius:6px;max-height:520px;width:auto;height:auto;max-width:100%;background:#fff}
 figcaption{font-size:.92rem;color:var(--muted)}
 figcaption b{color:var(--fg)}
 .credit{font-size:.78rem;color:var(--muted)}
@@ -326,7 +326,7 @@ figure img{background:#fff}
     <div class="cita"><b>Cómo citar este curso</b><p id="citaTxt">Jiménez R. Curso de Fisioterapia Respiratoria para fisioterapeutas [Internet]. RafaelJL; 2026 [versión 1.0; revisado el 24 de noviembre de 2026]. Disponible en: https://rafacapi17-dev.github.io/aprendizaje/fisioterapia-respiratoria/</p><button type="button" id="citaBtn" class="qreset">Copiar cita</button></div>
     <p class="alcance"><b>Alcance.</b> Material formativo para fisioterapeutas. Resume la evidencia disponible y la práctica habitual, pero no sustituye las guías clínicas ni el criterio profesional ante cada paciente. Los enlaces a vídeos de terceros se comprobaron el 24 de noviembre de 2026 y pueden cambiar.</p>
   </section>
-  <p class="credit">Las fotografías proceden de Wikimedia Commons con licencia libre (se cargan desde allí); el autor y la licencia figuran bajo cada una. Los esquemas son de elaboración propia. Las pautas de dosificación son rangos orientativos tomados de las guías y estudios citados en las referencias de cada módulo; individualízalas siempre según el paciente y los protocolos de tu centro.</p>
+  <p class="credit">Las fotografías proceden de Wikimedia Commons con licencia libre (se cargan desde allí); el autor y la licencia figuran bajo cada una. Los esquemas son de elaboración propia. Las imágenes marcadas como generadas con IA (figuras 1.2, 5.1 y 8.1) son ilustrativas y no reproducen casos reales. Las pautas de dosificación son rangos orientativos tomados de las guías y estudios citados en las referencias de cada módulo; individualízalas siempre según el paciente y los protocolos de tu centro.</p>
 </div>
 
 <div class="view" id="semana" hidden>
@@ -350,7 +350,7 @@ figure img{background:#fff}
       <li><b>Comprueba:</b> ¿por qué un paciente con abdominales débiles respira bien pero tose mal?</li></ul></article>
     <article class="day" data-day="3"><div class="dhead"><span class="dnum">Día 3</span><b class="fdate" data-off="2"></b><label><input type="checkbox" id="d3"> Hecho</label></div>
       <h3>Lóbulos, segmentos y mapa de superficie</h3>
-      <ul><li><b>Lee:</b> <a href="#m1">Módulo 1</a>, apartado 3, la figura 1.2 y la tabla de regiones (25 min).</li>
+      <ul><li><b>Lee:</b> <a href="#m1">Módulo 1</a>, apartado 3, la figura 1.3 y la tabla de regiones (25 min).</li>
       <li><b>Practica (20 min):</b> con lápiz dermográfico, dibuja en un compañero la cisura oblicua (de la apófisis espinosa de T3 a la 6ª costilla en la línea medioclavicular) y la horizontal derecha (4º cartílago costal). Marca los puntos donde auscultarías cada lóbulo y ausculta cada uno comparando ambos lados.</li>
       <li><b>Comprueba:</b> ¿dónde auscultas el lóbulo medio? ¿Y la língula?</li></ul></article>
     <article class="day" data-day="4"><div class="dhead"><span class="dnum">Día 4</span><b class="fdate" data-off="3"></b><label><input type="checkbox" id="d4"> Hecho</label></div>
@@ -413,14 +413,14 @@ figure img{background:#fff}
       <li><b>Espiratorios:</b> la espiración en reposo es pasiva; en esfuerzo y tos actúan abdominales (sobre todo transverso y oblicuos) e intercostales internos.</li>
     </ul>
   </section>
-  <div class="photo-slot"><b>Figura pendiente.</b> Fotografía de las manos valorando la expansión costal superior (brazo de bomba) e inferior (asa de cubo) en un compañero.</div>
+  <figure><img src="img/expansion-costal.webp" alt="Fisioterapeuta con ambas manos abiertas sobre la parte baja de las costillas, por detrás, en un paciente sentado." width="1264" height="848" loading="lazy"><figcaption><b>Figura 1.2.</b> Valoración manual de la expansión de las costillas inferiores (asa de cubo): ambas manos abiertas sobre la parte baja del tórax, por detrás, con el paciente sentado. Al inspirar, las manos se separan; compara un lado con otro.</figcaption><span class="credit">Imagen generada con IA con fines ilustrativos; no es una fotografía de un paciente real.</span></figure>
   <div class="apply prose"><b>Aplicación clínica.</b> Un paciente neuromuscular con abdominales débiles tiene tos ineficaz aunque su diafragma funcione: por eso la compresión abdominal manual es la base de la tos asistida (módulo 5). Un paciente con tiraje y esternocleidomastoideo activo en reposo te está diciendo que su sistema está al límite: dosifica con cuidado.</div>
 
   <section class="prose">
     <h2>3. Pulmones, lóbulos y segmentos</h2>
     <p>El pulmón derecho tiene tres lóbulos (superior, medio e inferior) y 10 segmentos; el izquierdo, dos lóbulos (superior, con la língula, e inferior) y 8-10 segmentos según la clasificación. La cisura oblicua recorre el tórax desde la apófisis espinosa de T3 por detrás hasta la sexta costilla en la línea medioclavicular por delante.</p>
   </section>
-  <figure><div class="duo"><div><img src="img/torax-pleuras.png" alt="Proyección de pleuras y pulmones en la pared torácica" loading="lazy"><span class="credit">Henry Vandyke Carter, <i>Anatomy of the Human Body</i> (Gray, 1918). Dominio público, vía Wikimedia Commons.</span></div><div><img src="img/pulmones-detalle.png" alt="Pulmones con lóbulos, cisuras y árbol bronquial" loading="lazy"><span class="credit">Patrick J. Lynch, ilustrador médico. CC BY 2.5, vía Wikimedia Commons.</span></div></div><figcaption><b>Figura 1.2.</b> A la izquierda, proyección de las pleuras (azul) y los pulmones (morado) sobre la pared torácica: es el mapa que usas al auscultar. A la derecha, lóbulos, cisuras y árbol bronquial.</figcaption></figure>
+  <figure><div class="duo"><div><img src="img/torax-pleuras.png" alt="Proyección de pleuras y pulmones en la pared torácica" loading="lazy"><span class="credit">Henry Vandyke Carter, <i>Anatomy of the Human Body</i> (Gray, 1918). Dominio público, vía Wikimedia Commons.</span></div><div><img src="img/pulmones-detalle.png" alt="Pulmones con lóbulos, cisuras y árbol bronquial" loading="lazy"><span class="credit">Patrick J. Lynch, ilustrador médico. CC BY 2.5, vía Wikimedia Commons.</span></div></div><figcaption><b>Figura 1.3.</b> A la izquierda, proyección de las pleuras (azul) y los pulmones (morado) sobre la pared torácica: es el mapa que usas al auscultar. A la derecha, lóbulos, cisuras y árbol bronquial.</figcaption></figure>
   <section>
     <div class="tablewrap"><table>
       <thead><tr><th>Región que auscultas o drenas</th><th>Dónde colocar el fonendo o las manos</th><th>Posición de drenaje clásica</th></tr></thead>
@@ -439,11 +439,11 @@ figure img{background:#fff}
     <p>La vía aérea se ramifica unas 23 veces desde la tráquea hasta los sacos alveolares. Las primeras 16 generaciones solo conducen el aire (espacio muerto anatómico, unos 150 ml); a partir de ahí aparecen los alvéolos y empieza el intercambio de gases. En el ácino, la unidad funcional distal, las vías se ramifican unas 9 veces más y miden apenas 0,3-0,5 mm<sup><a href="#m1r3">3</a></sup>.</p>
     <p>Desde la tráquea hasta los bronquiolos, el epitelio es ciliado. Cada célula tiene unos 200 cilios que baten coordinados dentro de una capa periciliar; sobre ella flota el moco, que atrapa partículas y gérmenes. La capa periciliar funciona como un cepillo que mantiene el moco separado del epitelio. Si el moco se deshidrata (fibrosis quística, bronquiectasias), el cepillo se comprime, los cilios dejan de batir y el moco se pega<sup><a href="#m1r4">4</a></sup>.</p>
   </section>
-  <figure><div class="duo"><div><img src="img/traquea-bronquios.png" alt="Laringe, tráquea y bronquios principales" loading="lazy"><span class="credit">Henry Vandyke Carter, <i>Anatomy of the Human Body</i> (Gray, 1918). Dominio público, vía Wikimedia Commons.</span></div><div><img src="img/bronquios-pulmones.jpg" alt="Árbol bronquial dentro de los pulmones" loading="lazy"><span class="credit">National Cancer Institute. Dominio público, vía Wikimedia Commons.</span></div></div><figcaption><b>Figura 1.3.</b> Vía aérea de conducción: cartílagos de laringe, tráquea y bronquios (izquierda) y ramificación del árbol bronquial en los pulmones (derecha).</figcaption></figure>
+  <figure><div class="duo"><div><img src="img/traquea-bronquios.png" alt="Laringe, tráquea y bronquios principales" loading="lazy"><span class="credit">Henry Vandyke Carter, <i>Anatomy of the Human Body</i> (Gray, 1918). Dominio público, vía Wikimedia Commons.</span></div><div><img src="img/bronquios-pulmones.jpg" alt="Árbol bronquial dentro de los pulmones" loading="lazy"><span class="credit">National Cancer Institute. Dominio público, vía Wikimedia Commons.</span></div></div><figcaption><b>Figura 1.4.</b> Vía aérea de conducción: cartílagos de laringe, tráquea y bronquios (izquierda) y ramificación del árbol bronquial en los pulmones (derecha).</figcaption></figure>
   <section class="prose">
     <div class="apply"><b>Aplicación clínica.</b> Hidratación, suero salino hipertónico nebulizado antes del drenaje y técnicas que generan flujo espiratorio actúan sobre este mismo sistema. Por eso el orden de la sesión importa: primero nebulización hidratante o broncodilatador, luego drenaje, y al final el antibiótico inhalado si lo hay.</div>
   </section>
-  <figure><img src="img/alveolo.png" alt="Saco alveolar con su red capilar" loading="lazy"><figcaption><b>Figura 1.4.</b> Saco alveolar con su red capilar. Aquí termina la vía aérea y empieza el intercambio de gases.</figcaption><span class="credit">LadyofHats (Mariana Ruiz). Dominio público, vía Wikimedia Commons.</span></figure>
+  <figure><img src="img/alveolo.png" alt="Saco alveolar con su red capilar" loading="lazy"><figcaption><b>Figura 1.5.</b> Saco alveolar con su red capilar. Aquí termina la vía aérea y empieza el intercambio de gases.</figcaption><span class="credit">LadyofHats (Mariana Ruiz). Dominio público, vía Wikimedia Commons.</span></figure>
 
     <section class="prose">
     <h2>5. Vía aérea superior y glotis</h2>
@@ -999,7 +999,7 @@ figure img{background:#fff}
       <div class="dose">Ajuste individual · evaluar con el pico flujo de tos asistido</div>
       <p>Bien tolerada y mejora la tos frente al basal en pacientes neuromusculares<sup><a href="#m5r2">2</a></sup>. La evidencia de alta calidad es escasa, pero la mayoría de guías la recomiendan por falta de alternativas<sup><a href="#m5r3">3</a></sup>. Vigila la vía aérea superior: en ELA bulbar puede colapsarse con presiones altas<sup><a href="#m5r4">4</a></sup>.</p></article>
   </div>
-  <div class="photo-slot"><b>Figura pendiente.</b> Fotografía del tosedor mecánico con la mascarilla montada y la pantalla de presiones.</div>
+  <figure><img src="img/tosedor-mecanico.webp" alt="Equipo de insuflación-exsuflación mecánica con tubuladura, filtro y mascarilla facial sobre un maniquí." width="1264" height="848" loading="lazy"><figcaption><b>Figura 5.1.</b> Montaje habitual de un equipo de insuflación-exsuflación mecánica: unidad con pantalla de presiones, tubuladura con filtro y mascarilla facial que debe sellar bien. Es una ilustración genérica: los controles y la pantalla cambian según el modelo.</figcaption><span class="credit">Imagen generada con IA con fines ilustrativos; no es una fotografía de un paciente real.</span></figure>
 
   <section class="prose videos"><h2>Material audiovisual</h2><p>Recursos gratuitos de sociedades científicas y hospitales públicos, comprobados el 24 de noviembre de 2026. Haz la tarea de cada vídeo: verlo sin objetivo apenas deja huella.</p><ul class="vlist"><li class="vid"><a href="https://uclh.nhs.uk/our-services/find-service/medical-specialties-1/respiratory-medicine/respiratory-outpatient-physiotherapy/respiratory-outpatient-physiotherapy-patient-videos" target="_blank" rel="noopener">Vídeos de fisioterapia respiratoria para pacientes</a><span class="vmeta">University College London Hospitals · Inglés · gratuito</span><span class="vtask"><b>Tarea:</b> Primeras fases de la reeducación del patrón respiratorio. Observa cómo enseñan a bajar la frecuencia sin forzar el volumen.</span></li><li class="vid"><a href="https://cortree.sciontario.org/lms-videos/breath-stacking-technique/" target="_blank" rel="noopener">Breath Stacking Technique</a><span class="vmeta">Spinal Cord Injury Ontario (Cortree) · Inglés · gratuito</span><span class="vtask"><b>Tarea:</b> Cuenta cuántas insuflaciones hace antes de la tos y cómo se coordina la compresión.</span></li></ul></section><section class="prose"><h2>Autoevaluación</h2>
     <details><summary>Un paciente tras lobectomía usa muy bien su inspirómetro pero sigue en cama. ¿Qué cambias?</summary><p>Lo prioritario es la movilización precoz (sentarlo, levantarlo, caminar). El inspirómetro solo no reduce complicaciones pulmonares.</p></details>
@@ -1183,7 +1183,7 @@ figure img{background:#fff}
         <div class="dose">Reevaluar cada 2-4 semanas</div></article>
     </div>
   </section>
-  <div class="photo-slot"><b>Figura pendiente.</b> Fotografía de una sesión de entrenamiento en cicloergómetro con pulsioximetría continua.</div>
+  <figure><img src="img/cicloergometro.webp" alt="Paciente mayor pedaleando en una bicicleta estática con un pulsioxímetro en el dedo mientras un fisioterapeuta anota." width="1154" height="848" loading="lazy"><figcaption><b>Figura 8.1.</b> Entrenamiento en cicloergómetro con pulsioximetría de dedo: el fisioterapeuta registra SpO2, frecuencia cardiaca y disnea durante la sesión, no solo al final.</figcaption><span class="credit">Imagen generada con IA con fines ilustrativos; no es una fotografía de un paciente real.</span></figure>
   <section class="prose">
     <h2>3. Seguridad durante el ejercicio</h2>
     <ul>
