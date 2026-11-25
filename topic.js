@@ -9,6 +9,24 @@
    ===================================================================== */
 window.TOPIC_DIA = [
   {
+    fecha: "2026-11-25",
+    area: "Rehabilitación respiratoria",
+    area_en: "Respiratory rehabilitation",
+    titulo: "Rehabilitación en casa tras un ingreso por EPOC: no evita reingresos, pero calma la ansiedad",
+    titulo_en: "Home rehab after a COPD hospital stay: no fewer readmissions, but less anxiety",
+    resumen: "En un ensayo australiano con 157 personas con EPOC recién dadas de alta, empezar un programa de rehabilitación en casa en las dos primeras semanas (una visita de fisioterapia y llamadas semanales durante 8 semanas) no redujo los reingresos al año: 60% frente a 64% con la atención habitual, una diferencia que puede deberse al azar. Sí bajó la ansiedad y tres de cada cuatro participantes completaron el programa. Quienes lo terminaron mejoraron más en ahogo y calidad de vida, aunque esa comparación no es aleatorizada.",
+    resumen_en: "In an Australian trial with 157 people with COPD just discharged from hospital, starting a home rehabilitation programme within two weeks (one physiotherapy home visit plus weekly phone calls for 8 weeks) did not reduce readmissions over a year: 60% versus 64% with usual care, a difference that may be due to chance. It did lower anxiety, and three in four participants completed the programme. Those who finished it improved more in breathlessness and quality of life, although that comparison is not randomised.",
+    fuente: "European Respiratory Journal (Cox, Holland et al., ensayo aleatorizado early HomeBase, 2026)",
+    url: "https://pubmed.ncbi.nlm.nih.gov/43057871",
+    pregunta: "¿Qué mejoró claramente la rehabilitación en casa tras el alta por EPOC?",
+    pregunta_en: "What did home rehabilitation after a COPD hospital stay clearly improve?",
+    opciones: ["Los reingresos en el hospital","La supervivencia a un año","La función pulmonar en la espirometría","La ansiedad"],
+    opciones_en: ["Hospital readmissions","One-year survival","Lung function on spirometry","Anxiety"],
+    correcta: 3,
+    explicacion: "La ansiedad bajó de forma significativa, pero los reingresos al año fueron parecidos en ambos grupos (60% frente a 64%). Las mejoras en ahogo y calidad de vida solo se vieron en quienes completaron el programa, en una comparación no aleatorizada.",
+    explicacion_en: "Anxiety fell significantly, but one-year readmissions were similar in both groups (60% vs 64%). Gains in breathlessness and quality of life were only seen in those who completed the programme, in a non-randomised comparison."
+  },
+  {
     fecha: "2026-11-24",
     area: "Enfermería y cuidados",
     area_en: "Nursing and care",
