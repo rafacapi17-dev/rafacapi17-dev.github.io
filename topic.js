@@ -9,6 +9,24 @@
    ===================================================================== */
 window.TOPIC_DIA = [
   {
+    fecha: "2026-11-26",
+    area: "Neurorrehabilitación",
+    area_en: "Neurorehabilitation",
+    titulo: "Moverse al ritmo de la música en casa podría ayudar tras un ictus, apunta un estudio piloto",
+    titulo_en: "Moving to rhythm and music at home may help after a stroke, a pilot study suggests",
+    resumen: "En un estudio piloto en Indonesia con 30 personas que habían tenido un ictus en los dos meses anteriores, quienes añadieron en casa durante un mes ejercicios guiados por ritmo y música (el método Ronnie Gardiner) tenían con más frecuencia fuerza útil en brazos y piernas al final (93% frente a 53%), aunque ese grupo ya partía con más fuerza. Más de ellos caminaban sin ayuda (73% frente a 47%), pero esa diferencia podía deberse al azar. Es un estudio pequeño, sin sorteo de grupos y con poca asistencia a las sesiones, así que hacen falta ensayos más grandes.",
+    resumen_en: "In a pilot study in Indonesia with 30 people who had had a stroke in the previous two months, those who added a month of home exercises guided by rhythm and music (the Ronnie Gardiner Method) more often had useful arm and leg strength at the end (93% vs 53%), although that group already started out stronger. More of them could walk without help (73% vs 47%), but that difference may be due to chance. It is a small, non-randomised study with low session attendance, so larger trials are needed.",
+    fuente: "The Open Neurology Journal (Huwae et al., Universidad de Pattimura, estudio piloto cuasiexperimental, 2026; nota de prensa en EurekAlert)",
+    url: "https://www.eurekalert.org/news-releases/1152435",
+    pregunta: "¿Qué tipo de ejercicios en casa se probaron en este estudio tras un ictus?",
+    pregunta_en: "What kind of home exercises were tested in this stroke study?",
+    opciones: ["Natación en piscina","Pesas con máquinas de gimnasio","Movimientos guiados por ritmo y música","Juegos de realidad virtual con gafas"],
+    opciones_en: ["Swimming in a pool","Weight machines at a gym","Movements guided by rhythm and music","Virtual reality games with a headset"],
+    correcta: 2,
+    explicacion: "El programa usaba ritmo y música para guiar los movimientos (método Ronnie Gardiner). Los resultados son prometedores pero preliminares: solo 30 personas, sin sorteo de grupos y con el grupo tratado partiendo con más fuerza.",
+    explicacion_en: "The programme used rhythm and music to guide movements (the Ronnie Gardiner Method). The results are promising but preliminary: only 30 people, no randomisation, and the treated group started out stronger."
+  },
+  {
     fecha: "2026-11-25",
     area: "Rehabilitación respiratoria",
     area_en: "Respiratory rehabilitation",
