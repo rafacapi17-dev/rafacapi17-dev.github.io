@@ -9,6 +9,24 @@
    ===================================================================== */
 window.TOPIC_DIA = [
   {
+    fecha: "2026-11-27",
+    area: "Ejercicio y prevención",
+    area_en: "Exercise and prevention",
+    titulo: "Moverse en el tiempo libre se asocia a menos demencia; el esfuerzo del trabajo, no",
+    titulo_en: "Leisure-time activity is linked to less dementia; physical effort at work is not",
+    resumen: "Un análisis que reúne 74 estudios con más de 4,2 millones de personas de 30 países encontró que quienes eran más activos en su tiempo libre tenían un 24% menos de riesgo de demencia que los menos activos. En cambio, quienes hacían más esfuerzo físico en el trabajo tenían un 20% más de riesgo. Son estudios observacionales, casi todos con actividad declarada por los propios participantes, así que muestran asociación y no prueban causa.",
+    resumen_en: "An analysis pooling 74 studies with more than 4.2 million people from 30 countries found that those who were more active in their leisure time had a 24% lower risk of dementia than the least active. By contrast, people with more physical effort at work had a 20% higher risk. These are observational studies, almost all based on self-reported activity, so they show association rather than proving cause.",
+    fuente: "The Lancet Public Health (Feter, Raichlen et al., USC Dornsife, revisión sistemática y metaanálisis, 2026; nota de prensa en ScienceDaily)",
+    url: "https://www.sciencedaily.com/releases/2026/11/261125045246.htm",
+    pregunta: "¿Qué tipo de actividad física se asoció a MÁS riesgo de demencia en este análisis?",
+    pregunta_en: "Which type of physical activity was linked to a HIGHER risk of dementia in this analysis?",
+    opciones: ["El deporte en el tiempo libre","El esfuerzo físico en el trabajo","Pasear por el campo","Bailar con amigos"],
+    opciones_en: ["Sport in leisure time","Physical effort at work","Walking in the countryside","Dancing with friends"],
+    correcta: 1,
+    explicacion: "La actividad física en el trabajo se asoció a un 20% más de riesgo, mientras que la del tiempo libre se asoció a un 24% menos. Al ser estudios observacionales con actividad autodeclarada, no demuestran que el trabajo físico cause demencia.",
+    explicacion_en: "Physical activity at work was linked to a 20% higher risk, while leisure-time activity was linked to a 24% lower risk. Because these are observational studies with self-reported activity, they do not prove that physical work causes dementia."
+  },
+  {
     fecha: "2026-11-26",
     area: "Neurorrehabilitación",
     area_en: "Neurorehabilitation",
