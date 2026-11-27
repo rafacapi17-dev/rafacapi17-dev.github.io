@@ -22,6 +22,17 @@ window.PRODUCCION = {
   publicaciones: [
     {
       tipo: "articulo",
+      estudio: "Revisión sistemática",
+      estudio_en: "Systematic review",
+      titulo: "Heart Rate Variability for Longitudinal Monitoring in Male Professional and Semi-Professional Soccer Players: A Systematic Review of Prospective Observational Studies",
+      autores: "Víctor Manuel Fuentes Álvarez, Marie Carmen Valenza, Rafael Jiménez López, Javier Herranz Vázquez, Carmen Cruz Herrera, Jesús Zamora Tortosa, Javier Martín Núñez",
+      revista: "Physiologia",
+      anio: 2026, mes: 11,
+      volumen: "6", numero: "4", paginas: "69",
+      doi: "10.3390/physiologia6040069",
+    },
+    {
+      tipo: "articulo",
       estudio: "Revisión sistemática y metaanálisis",
       estudio_en: "Systematic review and meta-analysis",
       titulo: "Effects of Therapeutic Exercise on Bone Health and Mineral Metabolism in Chronic Kidney Disease–Mineral and Bone Disorder: A Systematic Review and Meta-Analysis",
